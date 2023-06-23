@@ -47,37 +47,37 @@ a {
 
 .margin {
     margin-inline: 10px;
-  }
-  
+}
+
 .containerPrincipal {
-margin: 40px 0 0 0;
-height: 100%;
-border: 2px solid rgb(210, 210, 210);
-border-radius: 10px;
+    margin: 40px 0 0 0;
+    height: 100%;
+    border: 2px solid rgb(210, 210, 210);
+    border-radius: 10px;
 }
 
 .navPrincipal {
-height: 40px;
-width: 100%;
-background-color: rgb(248, 249, 250);
-border-top-left-radius: 10px;
-border-top-right-radius: 10px;
+    height: 40px;
+    width: 100%;
+    background-color: rgb(248, 249, 250);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .align {
-display: flex;
-align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .navSecundaria {
-height: 30px;
-width: 100%;
-background-color: rgb(234, 236, 238);
+    height: 30px;
+    width: 100%;
+    background-color: rgb(234, 236, 238);
 }
 
 .conteudoPrincipal {
-height: 100%;
-overflow-y: auto;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .link {
@@ -94,14 +94,48 @@ overflow-y: auto;
     border-top-right-radius: 0;
 }
 
-.alert{
+.alert {
     transition: 0.5s;
 }
 
-.alert:hover{
+.alert:hover {
     background-color: rgba(173, 173, 173, 0.603);
     transition: 0.5s;
 }
 
+.card {
+    min-height: 300px;
+}
 
-  
+.cardParticipantes {
+    min-height: 624px;
+}
+
+.alert-grupo {
+    cursor: grab;
+}
+
+.alert-grupo:active {
+    cursor: grabbing;
+}
+
+.alert-grupo.dragging {
+    cursor: grabbing;
+}
+
+.dragging {
+    opacity: 0.5;
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+}
+
+.alert svg {
+    margin-left: auto;
+}
+
+.alert-nota {
+    margin-left: auto;
+}

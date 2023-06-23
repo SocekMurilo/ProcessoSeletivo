@@ -1,117 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Processos</title>
     <!-- Icone -->
-    <link rel="icon" type="image/x-icon" href="https://static-00.iconduck.com/assets.00/bosch-icon-512x512-er2htt2a.png">
-
+    <link rel="icon" type="image/x-icon"
+      href="https://static-00.iconduck.com/assets.00/bosch-icon-512x512-er2htt2a.png">
     <!-- Bootstrap e CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
     <!-- Fontes -->
-    <link href="//db.onlinewebfonts.com/c/6e96217a04da19fc61e0c2724049e53e?family=Neology-Bold" rel="stylesheet" type="text/css"/>
-</head>
-<body>
+    <link
+      href="//db.onlinewebfonts.com/c/6e96217a04da19fc61e0c2724049e53e?family=Neology-Bold"
+      rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
     <div class="hr"></div>
     <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid containerNav">
-          <a class="navbar-brand" href="#">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Bosch-logo.svg/2560px-Bosch-logo.svg.png" alt="Logo" width="150" height="33" class="d-inline-block align-text-top">
-          </a>
-          <div class="d-flex justify-content-end">
-            <a href="" class="margin link">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                </svg>
+      <div class="container-fluid containerNav">
+        <a class="navbar-brand" href="#">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Bosch-logo.svg/2560px-Bosch-logo.svg.png"
+            alt="Logo" width="150" height="33" class="d-inline-block
+            align-text-top">
+        </a>
+        <div class="d-flex justify-content-end">
+          <a href="" class="margin link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397
+                1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0
+                1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5
+                0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              </svg>
             </a>
             <div class="dropdown link">
-                <a href="" class="margin dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+              <a href="" class="margin dropdown-toggle"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                  fill="currentColor" class="bi bi-person-circle" viewBox="0 0
+                  16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0
+                      8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8
+                      10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                     </svg>
-                </a>
+                  </a>
 
-                <ul class="dropdown-menu dropdown-menu-end">
+                  <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="#">Perfil</a></li>
                     <li><a class="dropdown-item" href="#">Editar</a></li>
                     <li><a class="dropdown-item" href="#">Sair</a></li>
-                </ul>
+                  </ul>
+                </div>
+              </div>
             </div>
+          </nav>
+
+          <br>
+
+          <div style="margin-left: 60px; margin-right: 60px;">
+            <div class="d-flex align-items-center justify-content-start">
+              <h1 class="font">Processos</h1>
+
+              <button class="btn btn-light margin" data-bs-toggle="modal"
+                data-bs-target="#myModal"><b>+</b></button>
+            </div>
+
+            <br>
+
+            <div class="accordion" id="accordionExample">
+              <div class="alert alert-light accordion-button" role="alert"
+                data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                Nome do processo aqui
+              </div>
+              <div id="collapseOne" class="collapse">
+                <div class="card card-body">
+
+                  <label for="etapa">Etapa:</label>
+                  <select id="etapa" class="form-select">
+                    <option value="etapa1">Prova</option>
+                    <option value="etapa2">Dinâmica 1</option>
+                    <option value="etapa3">Dinâmica 2</option>
+                    <option value="etapa4">Entrevista</option>
+                  </select>
+
+                  <br>
+
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-action"><a
+                        href="">Nome completo da pessoa aqui</a></li>
+                    <li class="list-group-item list-group-item-action"><a
+                        href="">Nome completo da pessoa aqui</a></li>
+                    <li class="list-group-item list-group-item-action"><a
+                        href="">Nome completo da pessoa aqui</a></li>
+                    <li class="list-group-item list-group-item-action"><a
+                        href="">Nome completo da pessoa aqui</a></li>
+                    <li class="list-group-item list-group-item-action"><a
+                        href="">Nome completo da pessoa aqui</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="alert alert-light accordion-button" role="alert"
+                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo">
+                Nome do outro processo aqui
+              </div>
+              <div id="collapseTwo" class="collapse">
+                <div class="card card-body">
+
+                  <label for="etapa">Etapa:</label>
+                  <select id="etapa" class="form-select">
+                    <option value="etapa1">Prova</option>
+                    <option value="etapa2">Dinâmica 1</option>
+                    <option value="etapa3">Dinâmica 2</option>
+                    <option value="etapa4">Entrevista</option>
+                  </select>
+
+                  <br>
+
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-action"><a
+                        href="">Nome completo da pessoa aqui</a></li>
+                    <li class="list-group-item list-group-item-action"><a
+                        href="">Nome completo da pessoa aqui</a></li>
+                    <li class="list-group-item list-group-item-action"><a
+                        href="">Nome completo da pessoa aqui</a></li>
+                    <li class="list-group-item list-group-item-action"><a
+                        href="">Nome completo da pessoa aqui</a></li>
+                    <li class="list-group-item list-group-item-action"><a
+                        href="">Nome completo da pessoa aqui</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
           </div>
+
         </div>
-      </nav>
 
-      <br>
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
 
-      <div style="margin-left: 60px; margin-right: 60px;">
-          <h1 class="font">Processos</h1>
-
-          <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Nome do processo aqui
-                </button>
-              </h2>
-              <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item list-group-item-action"><a href="">Nome completo da pessoa aqui</a></li>
-                        <li class="list-group-item list-group-item-action"><a href="">Nome completo da pessoa aqui</a></li>
-                        <li class="list-group-item list-group-item-action"><a href="">Nome completo da pessoa aqui</a></li>
-                        <li class="list-group-item list-group-item-action"><a href="">Nome completo da pessoa aqui</a></li>
-                        <li class="list-group-item list-group-item-action"><a href="">Nome completo da pessoa aqui</a></li>
-                    </ul>
-                </div>
+              <!-- Cabeçalho do Modal -->
+              <div class="modal-header">
+                <h4 class="modal-title">Criar um novo processo</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                  aria-label="Close"></button>
               </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Nome de outro processo aqui
-                </button>
-              </h2>
-              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item list-group-item-action"><a href="">Nome completo da pessoa aqui</a></li>
-                        <li class="list-group-item list-group-item-action"><a href="">Nome completo da pessoa aqui</a></li>
-                        <li class="list-group-item list-group-item-action"><a href="">Nome completo da pessoa aqui</a></li>
-                        <li class="list-group-item list-group-item-action"><a href="">Nome completo da pessoa aqui</a></li>
-                        <li class="list-group-item list-group-item-action"><a href="">Nome completo da pessoa aqui</a></li>
-                    </ul>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Nome de mais um processo aqui
-                </button>
-              </h2>
-              <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item list-group-item-action"><a href="">Nome completo da pessoa aqui</a></li>
-                        <li class="list-group-item list-group-item-action"><a href="">Nome completo da pessoa aqui</a></li>
-                        <li class="list-group-item list-group-item-action"><a href="">Nome completo da pessoa aqui</a></li>
-                        <li class="list-group-item list-group-item-action"><a href="">Nome completo da pessoa aqui</a></li>
-                        <li class="list-group-item list-group-item-action"><a href="">Nome completo da pessoa aqui</a></li>
-                    </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
 
-      
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+              <!-- Corpo do Modal -->
+              <div class="modal-body">
+                <form action="/cadastroProcesso" method="post"
+                  enctype="multipart/form-data">
+                  <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" name="nome"
+                      required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="data" class="form-label">Data</label>
+                    <input type="date" class="form-control" name="data"
+                      required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="etapas" class="form-label">Etapas</label>
+                    <input type="number" class="form-control" name="etapa"
+                      required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" for="arquivo">Planilha Excel</label>
+                    <input class="form-control" type="file">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Criar</button>
+                </div>
 
-    
-</body>
-</html>
+                <script
+                  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+                  integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+                  crossorigin="anonymous"></script>
+
+                <script>
+            function showTurnoSelect() {
+              var dataSelect = document.getElementById("data");
+              var turnoLabel = document.getElementById("turnoLabel");
+              var turnoSelect = document.getElementById("turno");
+              
+              if (dataSelect.value) {
+                turnoLabel.classList.remove("hidden");
+                turnoSelect.classList.remove("hidden");
+              } else {
+                turnoLabel.classList.add("hidden");
+                turnoSelect.classList.add("hidden");
+              }
+            }
+          </script>
+              </body>
+            </html>
