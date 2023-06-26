@@ -136,6 +136,11 @@ a {
     margin-left: auto;
 }
 
-.alert-nota {
-    margin-left: auto;
+.btnG {
+    height: 200px;
+    width: 100%;
+}
+
+.cardHeight {
+    height: 100%;
 }

@@ -15,6 +15,7 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- Fontes -->
     <link
@@ -22,8 +23,8 @@
       rel="stylesheet" type="text/css"/>
   </head>
   <body>
-    <div class="hr"></div>
-    <nav class="navbar bg-body-tertiary">
+    <div class="hr" data-aos="fade-down"></div>
+    <nav class="navbar bg-body-tertiary" data-aos="fade-down">
       <div class="container-fluid containerNav">
         <a class="navbar-brand" href="#">
           <img
@@ -67,380 +68,270 @@
           <br>
 
           <div style="margin-left: 60px; margin-right: 60px;">
-            <div class="card">
-              <div class="card-header">
-                <div class="d-flex align-items-center justify-content-between">
-                  <h5 class="font">Processo atual</h5>
-                  <div class="margin link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                      height="16" fill="currentColor" class="bi bi-filter-left"
-                      viewBox="0 0 16 16">
-                      <path d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5
-                        0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0
-                        1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0
-                        1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-                      </svg>
-                      <a href="">Selecionar</a>
-                    </div>
-                    <div class="margin link">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                        height="16" fill="currentColor" class="bi bi-funnel"
-                        viewBox="0 0 16 16">
-                        <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1
-                          .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0
-                          1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628
-                          3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372
-                          4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1
-                          .128-.334L13.5 3.308V2h-11z"/>
-                        </svg>
-                        <a href="">Filtrar</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <ul class="nav nav-tabs card-header-tabs">
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="true"
-                          href="#">Active</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                      </li>
-                    </ul>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-8" style="margin-bottom: 10px;">
+                  <div class="card cardHeight" data-aos="fade-up">
+                    <div class="card-header">
+                      <div class="d-flex justify-content-between
+                        align-items-center">
+                        <h5 class="font">Processo atual</h5>
+                        <div class="margin link">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                            height="16" fill="currentColor" class="bi
+                            bi-filter-left"
+                            viewBox="0 0 16 16">
+                            <path d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0
+                              1h-3a.5.5
+                              0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0
+                              1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1
+                              .5-.5h11a.5.5 0 0
+                              1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                            <a href="">Selecionar</a>
+                          </div>
+                          <div class="margin link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                              height="16" fill="currentColor" class="bi
+                              bi-funnel"
+                              viewBox="0 0 16 16">
+                              <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1
+                                .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5
+                                0 0
+                                1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628
+                                3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372
+                                4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0
+                                0 1
+                                .128-.334L13.5 3.308V2h-11z"/>
+                              </svg>
+                              <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Filtrar</a>
+                            </div>
+                          </div>
+                          <div class="collapse" id="collapseExample">
+                            <div class="card card-body">
+                              <div class="d-flex align-items-center justify-content-between">
+                              <div class="list-group">
+                                Ordem Alfabética
+                                <button class="list-group-item list-group-item-action"> 
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-alpha-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10.082 5.629 9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"/>
+                                    <path d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zm-8.46-.5a.5.5 0 0 1-1 0V3.707L2.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L4.5 3.707V13.5z"/>
+                                  </svg>
+                                </button>
+                                <button class="list-group-item list-group-item-action">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-alpha-down-alt" viewBox="0 0 16 16">
+                                    <path d="M12.96 7H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V7z"/>
+                                    <path fill-rule="evenodd" d="M10.082 12.629 9.664 14H8.598l1.789-5.332h1.234L13.402 14h-1.12l-.419-1.371h-1.781zm1.57-.785L11 9.688h-.047l-.652 2.156h1.351z"/>
+                                    <path d="M4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"/>
+                                  </svg>
+                                </button>
+                              </div>
+                              <div class="list-group">
+                                Nota
+                                <button class="list-group-item list-group-item-action"> 
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-alpha-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10.082 5.629 9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"/>
+                                    <path d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zm-8.46-.5a.5.5 0 0 1-1 0V3.707L2.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L4.5 3.707V13.5z"/>
+                                  </svg>
+                                </button>
+                                <button class="list-group-item list-group-item-action">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-alpha-down-alt" viewBox="0 0 16 16">
+                                    <path d="M12.96 7H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V7z"/>
+                                    <path fill-rule="evenodd" d="M10.082 12.629 9.664 14H8.598l1.789-5.332h1.234L13.402 14h-1.12l-.419-1.371h-1.781zm1.57-.785L11 9.688h-.047l-.652 2.156h1.351z"/>
+                                    <path d="M4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"/>
+                                  </svg>
+                                </button>
+                              </div>
+                              <div class="list-group">
+                                Idade
+                                <button class="list-group-item list-group-item-action"> 
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-alpha-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10.082 5.629 9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"/>
+                                    <path d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zm-8.46-.5a.5.5 0 0 1-1 0V3.707L2.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L4.5 3.707V13.5z"/>
+                                  </svg>
+                                </button>
+                                <button class="list-group-item list-group-item-action">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-alpha-down-alt" viewBox="0 0 16 16">
+                                    <path d="M12.96 7H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V7z"/>
+                                    <path fill-rule="evenodd" d="M10.082 12.629 9.664 14H8.598l1.789-5.332h1.234L13.402 14h-1.12l-.419-1.371h-1.781zm1.57-.785L11 9.688h-.047l-.652 2.156h1.351z"/>
+                                    <path d="M4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"/>
+                                  </svg>
+                                </button>
+                              </div>
+                              <div class="list-group">
+                                Disponibilidade
+                                <button class="list-group-item list-group-item-action"> 
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-alpha-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10.082 5.629 9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"/>
+                                    <path d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zm-8.46-.5a.5.5 0 0 1-1 0V3.707L2.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L4.5 3.707V13.5z"/>
+                                  </svg>
+                                </button>
+                                <button class="list-group-item list-group-item-action">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-alpha-down-alt" viewBox="0 0 16 16">
+                                    <path d="M12.96 7H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V7z"/>
+                                    <path fill-rule="evenodd" d="M10.082 12.629 9.664 14H8.598l1.789-5.332h1.234L13.402 14h-1.12l-.419-1.371h-1.781zm1.57-.785L11 9.688h-.047l-.652 2.156h1.351z"/>
+                                    <path d="M4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"/>
+                                  </svg>
+                                </button>
+                              </div>
+                              <div class="list-group">
+                                Já participou
+                                <button class="list-group-item list-group-item-action"> 
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-alpha-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10.082 5.629 9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"/>
+                                    <path d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zm-8.46-.5a.5.5 0 0 1-1 0V3.707L2.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L4.5 3.707V13.5z"/>
+                                  </svg>
+                                </button>
+                                <button class="list-group-item list-group-item-action">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-alpha-down-alt" viewBox="0 0 16 16">
+                                    <path d="M12.96 7H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V7z"/>
+                                    <path fill-rule="evenodd" d="M10.082 12.629 9.664 14H8.598l1.789-5.332h1.234L13.402 14h-1.12l-.419-1.371h-1.781zm1.57-.785L11 9.688h-.047l-.652 2.156h1.351z"/>
+                                    <path d="M4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"/>
+                                  </svg>
+                                </button>
+                              </div>
+                              <div class="list-group">
+                                Bloqueado
+                                <button class="list-group-item list-group-item-action"> 
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-alpha-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10.082 5.629 9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"/>
+                                    <path d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zm-8.46-.5a.5.5 0 0 1-1 0V3.707L2.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L4.5 3.707V13.5z"/>
+                                  </svg>
+                                </button>
+                                <button class="list-group-item list-group-item-action">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-alpha-down-alt" viewBox="0 0 16 16">
+                                    <path d="M12.96 7H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V7z"/>
+                                    <path fill-rule="evenodd" d="M10.082 12.629 9.664 14H8.598l1.789-5.332h1.234L13.402 14h-1.12l-.419-1.371h-1.781zm1.57-.785L11 9.688h-.047l-.652 2.156h1.351z"/>
+                                    <path d="M4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"/>
+                                  </svg>
+                                </button>
+                              </div>
+                            </div>
+                            <button class="btn btn-primary" style="margin-top: 5px; width: 120px;">Aplicar filtros</button>
+                          </div>
+                          </div>
+                        </div>
+                        <div class="card-body p-0">
 
-                    <hr>
+                          <ul class="nav nav-tabs card-header-tabs" style="margin-inline: auto; margin-bottom: 1px;">
+                            <li class="nav-item">
+                              <button class="nav-link active" aria-current="true"
+                                style="border-top-left-radius: 0;">Prova</button>
+                            </li>
+                            <li class="nav-item">
+                              <button class="nav-link" href="#">Dinâmica 1</button>
+                            </li>
+                          </ul>
 
-                    <div class="accordion accordion-flush"
-                      id="accordionFlushExample">
-                      <div class="accordion-item">
-                        <h2 class="accordion-header">
-                          <button class="accordion-button collapsed"
-                            type="button" data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseOne"
-                            aria-expanded="false"
-                            aria-controls="flush-collapseOne">
-                            Accordion Item #1
-                          </button>
-                        </h2>
-                        <div id="flush-collapseOne"
-                          class="accordion-collapse
-                          collapse">
-                          <div class="accordion-body">Placeholder content
-                            for
-                            this accordion, which is intended to demonstrate
-                            the <code>.accordion-flush</code> class. This is
-                            the first item's accordion body.</div>
+                          
+
+                          <div class="accordion accordion-flush"
+                            id="accordionFlushExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                <button class="accordion-button collapsed"
+                                  type="button" data-bs-toggle="collapse"
+                                  data-bs-target="#flush-collapseOne"
+                                  aria-expanded="false"
+                                  aria-controls="flush-collapseOne">
+                                  Accordion Item #1
+                                </button>
+                              </h2>
+                              <div id="flush-collapseOne"
+                                class="accordion-collapse
+                                collapse">
+                                <div class="accordion-body">Placeholder
+                                  content
+                                  for
+                                  this accordion, which is intended to
+                                  demonstrate
+                                  the <code>.accordion-flush</code> class.
+                                  This is
+                                  the first item's accordion body.</div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                <button class="accordion-button collapsed"
+                                  type="button" data-bs-toggle="collapse"
+                                  data-bs-target="#flush-collapseTwo"
+                                  aria-expanded="false"
+                                  aria-controls="flush-collapseTwo">
+                                  Accordion Item #2
+                                </button>
+                              </h2>
+                              <div id="flush-collapseTwo"
+                                class="accordion-collapse
+                                collapse">
+                                <div class="accordion-body">Placeholder
+                                  content
+                                  for
+                                  this accordion, which is intended to
+                                  demonstrate
+                                  the <code>.accordion-flush</code> class.
+                                  This is
+                                  the second item's accordion body. Let's
+                                  imagine
+                                  this being filled with some actual content.</div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header">
+                                <button class="accordion-button collapsed"
+                                  type="button" data-bs-toggle="collapse"
+                                  data-bs-target="#flush-collapseThree"
+                                  aria-expanded="false"
+                                  aria-controls="flush-collapseThree">
+                                  Accordion Item #3
+                                </button>
+                              </h2>
+                              <div id="flush-collapseThree"
+                                class="accordion-collapse collapse">
+                                <div class="accordion-body">Placeholder
+                                  content
+                                  for
+                                  this accordion, which is intended to
+                                  demonstrate
+                                  the <code>.accordion-flush</code> class.
+                                  This is
+                                  the third item's accordion body. Nothing
+                                  more
+                                  exciting happening here in terms of content,
+                                  but
+                                  just filling up the space to make it look,
+                                  at
+                                  least at first glance, a bit more
+                                  representative
+                                  of how this would look in a real-world
+                                  application.</div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                      <div class="accordion-item">
-                        <h2 class="accordion-header">
-                          <button class="accordion-button collapsed"
-                            type="button" data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseTwo"
-                            aria-expanded="false"
-                            aria-controls="flush-collapseTwo">
-                            Accordion Item #2
-                          </button>
-                        </h2>
-                        <div id="flush-collapseTwo"
-                          class="accordion-collapse
-                          collapse">
-                          <div class="accordion-body">Placeholder content
-                            for
-                            this accordion, which is intended to demonstrate
-                            the <code>.accordion-flush</code> class. This is
-                            the second item's accordion body. Let's imagine
-                            this being filled with some actual content.</div>
-                        </div>
-                      </div>
-                      <div class="accordion-item">
-                        <h2 class="accordion-header">
-                          <button class="accordion-button collapsed"
-                            type="button" data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseThree"
-                            aria-expanded="false"
-                            aria-controls="flush-collapseThree">
-                            Accordion Item #3
-                          </button>
-                        </h2>
-                        <div id="flush-collapseThree"
-                          class="accordion-collapse collapse">
-                          <div class="accordion-body">Placeholder content
-                            for
-                            this accordion, which is intended to demonstrate
-                            the <code>.accordion-flush</code> class. This is
-                            the third item's accordion body. Nothing more
-                            exciting happening here in terms of content, but
-                            just filling up the space to make it look, at
-                            least at first glance, a bit more representative
-                            of how this would look in a real-world
-                            application.</div>
-                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="d-flex flex-column" data-aos="fade-left">
+                        <a href="processos.html"><button class="btn btn-light mb-2 btnG">Processos</button></a>
+                        <a href="participantes.html"><button class="btn btn-light mb-2 btnG">Participantes</button></a>
+                        <a href=""><button class="btn btn-light btnG">Alguma outra coisa</button></a>
                       </div>
                     </div>
                   </div>
                 </div>
-                
-                <br>
-                
-                <button class="btn btn-light">Processos</button>
-                <button class="btn btn-light">Participantes</button>
-                <button class="btn btn-light">Alguma outra coisa</button>
-                
-
-                <!-- <div class="card">
-                  <div class="card-header">
-                    <h5 class="font">Processo atual</h5>
-
-                    <div class="d-flex justify-content-end">
-                      <div class="margin link">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                          height="16" fill="currentColor" class="bi
-                          bi-filter-left" viewBox="0 0 16 16">
-                          <path d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0
-                            1h-3a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0
-                            0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1
-                            .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-                          </svg>
-                          <a href="">Selecionar</a>
-                        </div>
-                        <div class="margin link">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                            height="16" fill="currentColor" class="bi bi-funnel"
-                            viewBox="0 0 16 16">
-                            <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1
-                              .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0
-                              1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628
-                              3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372
-                              4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1
-                              .128-.334L13.5 3.308V2h-11z"/>
-                            </svg>
-                            <a href="">Filtrar</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card-body">
-                        <ul class="nav nav-tabs card-header-tabs">
-                          <li class="nav-item">
-                            <a class="nav-link active" aria-current="true"
-                              href="#">Active</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                          </li>
-                        </ul>
-
-                        <hr>
-
-                        <div class="accordion accordion-flush"
-                          id="accordionFlushExample">
-                          <div class="accordion-item">
-                            <h2 class="accordion-header">
-                              <button class="accordion-button collapsed"
-                                type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseOne"
-                                aria-expanded="false"
-                                aria-controls="flush-collapseOne">
-                                Accordion Item #1
-                              </button>
-                            </h2>
-                            <div id="flush-collapseOne"
-                              class="accordion-collapse
-                              collapse">
-                              <div class="accordion-body">Placeholder content
-                                for
-                                this accordion, which is intended to demonstrate
-                                the <code>.accordion-flush</code> class. This is
-                                the first item's accordion body.</div>
-                            </div>
-                          </div>
-                          <div class="accordion-item">
-                            <h2 class="accordion-header">
-                              <button class="accordion-button collapsed"
-                                type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseTwo"
-                                aria-expanded="false"
-                                aria-controls="flush-collapseTwo">
-                                Accordion Item #2
-                              </button>
-                            </h2>
-                            <div id="flush-collapseTwo"
-                              class="accordion-collapse
-                              collapse">
-                              <div class="accordion-body">Placeholder content
-                                for
-                                this accordion, which is intended to demonstrate
-                                the <code>.accordion-flush</code> class. This is
-                                the second item's accordion body. Let's imagine
-                                this being filled with some actual content.</div>
-                            </div>
-                          </div>
-                          <div class="accordion-item">
-                            <h2 class="accordion-header">
-                              <button class="accordion-button collapsed"
-                                type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseThree"
-                                aria-expanded="false"
-                                aria-controls="flush-collapseThree">
-                                Accordion Item #3
-                              </button>
-                            </h2>
-                            <div id="flush-collapseThree"
-                              class="accordion-collapse collapse">
-                              <div class="accordion-body">Placeholder content
-                                for
-                                this accordion, which is intended to demonstrate
-                                the <code>.accordion-flush</code> class. This is
-                                the third item's accordion body. Nothing more
-                                exciting happening here in terms of content, but
-                                just filling up the space to make it look, at
-                                least at first glance, a bit more representative
-                                of how this would look in a real-world
-                                application.</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div> -->
               </div>
 
 
 
 
 
-
-              <!-- <div class="container-fluid">
-            <div class="row">
-              <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-12">
-                <div class="containerPrincipal">
-                  <div class="navPrincipal d-flex justify-content-between
-                    align-items-center">
-                    <div class="margin font">
-                      Processo atual
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <div class="margin link">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                          height="16" fill="currentColor" class="bi
-                          bi-filter-left" viewBox="0 0 16 16">
-                          <path d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0
-                            1h-3a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0
-                            0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1
-                            .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-                          </svg>
-                          <a href="">Selecionar</a>
-                        </div>
-                        <div class="margin link">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                            height="16" fill="currentColor" class="bi bi-funnel"
-                            viewBox="0 0 16 16">
-                            <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1
-                              .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0
-                              1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628
-                              3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372
-                              4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1
-                              .128-.334L13.5 3.308V2h-11z"/>
-                            </svg>
-                            <a href="">Filtrar</a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <a href=""></a>
-                      <div class="navSecundaria">
-                        <div class="margin align">
-                          Etapa atual
-                        </div>
-                      </div>
-
-                      <div class="conteudoPrincipal">
-                        <div class="accordion accordion-flush"
-                          id="accordionFlushExample">
-                          <div class="accordion-item">
-                            <h2 class="accordion-header">
-                              <button class="accordion-button collapsed"
-                                type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseOne"
-                                aria-expanded="false"
-                                aria-controls="flush-collapseOne">
-                                <div class="d-flex justify-content-between">
-                                  <div>
-                                    <b>Nome</b>
-                                  </div>
-                                  <div class="d-flex">
-                                    <b class="margin">Idade</b>
-                                    <b class="margin">Média</b>
-                                  </div>
-                                </div>
-                              </button>
-                            </h2>
-                            <div id="flush-collapseOne"
-                              class="accordion-collapse collapse">
-                              <div class="accordion-body">Placeholder content
-                                for this accordion, which is intended to
-                                demonstrate the <code>.accordion-flush</code>
-                                class. This is the first item's accordion body.</div>
-                            </div>
-                          </div>
-                          <div class="accordion-item">
-                            <h2 class="accordion-header">
-                              <button class="accordion-button collapsed"
-                                type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseTwo"
-                                aria-expanded="false"
-                                aria-controls="flush-collapseTwo">
-                                Accordion Item #2
-                              </button>
-                            </h2>
-                            <div id="flush-collapseTwo"
-                              class="accordion-collapse collapse">
-                              <div class="accordion-body">Placeholder content
-                                for this accordion, which is intended to
-                                demonstrate the <code>.accordion-flush</code>
-                                class. This is the second item's accordion body.
-                                Let's imagine this being filled with some actual
-                                content.</div>
-                            </div>
-                          </div>
-                          <div class="accordion-item">
-                            <h2 class="accordion-header">
-                              <button class="accordion-button collapsed"
-                                type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapseThree"
-                                aria-expanded="false"
-                                aria-controls="flush-collapseThree">
-                                Accordion Item #3
-                              </button>
-                            </h2>
-                            <div id="flush-collapseThree"
-                              class="accordion-collapse collapse">
-                              <div class="accordion-body">Placeholder content
-                                for this accordion, which is intended to
-                                demonstrate the <code>.accordion-flush</code>
-                                class. This is the third item's accordion body.
-                                Nothing more exciting happening here in terms of
-                                content, but just filling up the space to make
-                                it look, at least at first glance, a bit more
-                                representative of how this would look in a
-                                real-world application.</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-12">
-                    <button class="btn btn-light">Processos</button>
-                    <button class="btn btn-light">Participantes</button>
-                    <button class="btn btn-light">ALGO</button>
-                  </div>
-
-                </div>
-              </div> -->
               <script
                 src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
                 crossorigin="anonymous"></script>
+                <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+                <script>
+                  AOS.init();
+                </script>
             </body>
           </html>

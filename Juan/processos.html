@@ -184,28 +184,23 @@
                     <label class="form-label" for="arquivo">Planilha Excel</label>
                     <input class="form-control" type="file">
                   </div>
+                  
+                  <!-- <div
+                    class="drop-area"
+                    ondrop="dropHandler(event);"
+                    ondragover="dragOverHandler(event);">
+                    <p>Planilha Excel</p>
+                  </div>
+
+                  <br> -->
+
                   <button type="submit" class="btn btn-primary">Criar</button>
                 </div>
 
+                <script src="script.js"></script>
                 <script
                   src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
                   integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
                   crossorigin="anonymous"></script>
-
-                <script>
-            function showTurnoSelect() {
-              var dataSelect = document.getElementById("data");
-              var turnoLabel = document.getElementById("turnoLabel");
-              var turnoSelect = document.getElementById("turno");
-              
-              if (dataSelect.value) {
-                turnoLabel.classList.remove("hidden");
-                turnoSelect.classList.remove("hidden");
-              } else {
-                turnoLabel.classList.add("hidden");
-                turnoSelect.classList.add("hidden");
-              }
-            }
-          </script>
               </body>
             </html>
