@@ -36,3 +36,54 @@ function getNewPosition(grupo, posY) {
 
   return result;
 }
+
+ // Obtenha referência para o botão de selecionar todos
+ const selectAllBtn = document.getElementById('select-all-btn');
+
+ // Obtenha referência para todos os checkboxes
+ const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+ // Adicione um ouvinte de evento de clique ao botão de selecionar todos
+ selectAllBtn.addEventListener('click', function() {
+   const allChecked = Array.from(checkboxes).every(function(checkbox) {
+     return checkbox.checked;
+   });
+
+   // Se todos os checkboxes estiverem marcados, desmarque todos eles
+   if (allChecked) {
+     checkboxes.forEach(function(checkbox) {
+       checkbox.checked = false;
+     });
+   } else {
+     // Caso contrário, marque todos eles
+     checkboxes.forEach(function(checkbox) {
+       checkbox.checked = true;
+     });
+   }
+ });
+
+// Seleciona todos os elementos com a classe "nota"
+const notas = document.querySelectorAll('.nota');
+
+let soma = 0;
+let quantidade = 0;
+
+// Itera sobre cada elemento de nota e soma seus valores convertidos para número
+notas.forEach(nota => {
+  const valor = parseFloat(nota.textContent);
+  if (!isNaN(valor)) {
+    soma += valor;
+    quantidade++;
+  }
+});
+
+// Calcula a média
+const media = soma / quantidade;
+
+// Seleciona o elemento onde a média será exibida
+const mediaNotasElement = document.getElementById('mediaNotas');
+
+// Atribui o valor da média ao elemento
+mediaNotasElement.textContent = 'Média das notas: ' + media;
+
+

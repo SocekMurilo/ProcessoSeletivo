@@ -144,3 +144,8 @@ a {
 .cardHeight {
     height: 100%;
 }
+
+.rolagem {
+    height: 550px;
+    overflow-y: auto;
+}
