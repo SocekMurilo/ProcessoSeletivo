@@ -62,28 +62,58 @@ function getNewPosition(grupo, posY) {
    }
  });
 
-// Seleciona todos os elementos com a classe "nota"
-const notas = document.querySelectorAll('.nota');
 
-let soma = 0;
-let quantidade = 0;
+function mostrarSegundoSelect() {
+  var primeiroSelect = document.getElementById("etapa");
+  var outrosSelects = document.querySelectorAll(".etapas");
+  var etapa2 = document.getElementById("etapa2");
+  var etapa3 = document.getElementById("etapa3");
+  var etapa4 = document.getElementById("etapa4");
+  var turno = document.getElementById("selectTurno");
 
-// Itera sobre cada elemento de nota e soma seus valores convertidos para número
-notas.forEach(nota => {
-  const valor = parseFloat(nota.textContent);
-  if (!isNaN(valor)) {
-    soma += valor;
-    quantidade++;
+  if (primeiroSelect.value === "etapa2") {
+    etapa2.style.display = "block";
+  } else {
+    etapa2.style.display = "none";
   }
+
+  if (primeiroSelect.value === "etapa3") {
+    etapa3.style.display = "block";
+  } else {
+    etapa3.style.display = "none";
+  }
+
+  if (primeiroSelect.value === "etapa4") {
+    etapa4.style.display = "block";
+  } else {
+    etapa4.style.display = "none";
+  }
+
+  var opcaoSelecionada = false;
+  outrosSelects.forEach(function(select) {
+    if (etapa2.style.display === "block" || etapa3.style.display === "block" || etapa4.style.display === "block") {
+      opcaoSelecionada = true;
+    }
+  });
+
+  if (opcaoSelecionada) {
+    turno.style.display = "block";
+  } else {
+    turno.style.display = "none";
+  }
+}
+
+var btnsAtivar = document.querySelectorAll('.btn-ativar');
+var btnDesativar = document.querySelector('.btn-desativar');
+var linkGrupos = document.getElementById('botaoGrupos');
+
+btnsAtivar.forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    linkGrupos.classList.remove('disabled');
+  });
 });
 
-// Calcula a média
-const media = soma / quantidade;
-
-// Seleciona o elemento onde a média será exibida
-const mediaNotasElement = document.getElementById('mediaNotas');
-
-// Atribui o valor da média ao elemento
-mediaNotasElement.textContent = 'Média das notas: ' + media;
-
+btnDesativar.addEventListener('click', function() {
+  linkGrupos.classList.add('disabled');
+});
 
