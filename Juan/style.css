@@ -137,8 +137,9 @@ a {
 }
 
 .btnG {
-    height: 200px;
+    height: 260px;
     width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.175);
 }
 
 .cardHeight {
@@ -146,6 +147,41 @@ a {
 }
 
 .rolagem {
-    height: 550px;
+    height: 692px;
     overflow-y: auto;
+}
+
+.nav-link {
+    color: black;
+    transition: 0.2s;
+
+}
+
+.nav-link:hover:not(.active) {
+    color: black;
+    opacity: 0.5;
+    transition: 0.2s;
+  }
+
+#selecionar:hover {
+    cursor: pointer;
+}
+
+.marginFiltro {
+    margin-top: 2px;
+}
+
+.marginFiltroSide {
+    margin-inline: 3px;
+}
+
+.btnFitro {
+    min-width: 100px;
+}
+
+button.accordion-button.collapsed.d-flex::after {
+    margin: 0 0 0 10px;
+}
+button.accordion-button.d-flex::after {
+    margin: 0 0 0 10px;
 }

@@ -117,6 +117,15 @@ btnDesativar.addEventListener('click', function() {
   linkGrupos.classList.add('disabled');
 });
 
+document.getElementById("limparFiltros").addEventListener("click", function() {
+  var radioGroups = document.querySelectorAll(".btn-group-vertical");
+  for (var i = 0; i < radioGroups.length; i++) {
+    var radios = radioGroups[i].querySelectorAll("input[type='radio']");
+    for (var j = 0; j < radios.length; j++) {
+      radios[j].checked = false;
+    }
+  }
+});
 
 
 
