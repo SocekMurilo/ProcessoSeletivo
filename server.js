@@ -1,7 +1,6 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
 const routes = require('./routes');
-
 const app = express();
 
 app.use(express.static('public'));
@@ -11,7 +10,7 @@ app.use(fileUpload());
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
-app.use('/', routes);
+app.use('/home', routes);
 
 app.listen(3000, () => {
   console.log('Servidor rodando em http://localhost:3000');
