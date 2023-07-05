@@ -7,11 +7,10 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(fileUpload());
 
-app.set('view engine', 'ejs');
+app.use(routes);
+
+app.use(routes);
 app.set('views', './src/views');
+app.set('view engine', 'ejs');
 
-app.use('/home', routes);
-
-app.listen(3000, () => {
-  console.log('Servidor rodando em http://localhost:3000');
-});
+app.listen(3000, () => console.log('Acesse: http://localhost:3000/'));
