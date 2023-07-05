@@ -13,4 +13,4 @@ app.use(routes);
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
-app.listen(3000, () => console.log('Acesse: http://localhost:3000/'));
+app.listen(3000, () => console.log('Acesse: http://localhost:3000/Login'));

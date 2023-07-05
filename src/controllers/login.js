@@ -26,7 +26,7 @@ module.exports = {
                 expiresIn: "1d" // 7Dias
             });
 
-            res.redirect('/index');
+            res.redirect('/');
         }catch{
             return res.render('../views/Login', {erro: true});
         }

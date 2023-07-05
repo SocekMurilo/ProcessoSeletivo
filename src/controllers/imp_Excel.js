@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const XLSX = require('xlsx');
-const Participante = require('./src/model/participante');
+const Participante = require('../model/participante');
 
 module.exports = {
     async Import_ExcelGet (req, res) {

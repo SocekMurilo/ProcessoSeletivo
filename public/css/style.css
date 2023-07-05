@@ -1,18 +1,5 @@
-<<<<<<< HEAD
 body {
     overflow-x: hidden;
-=======
-<<<<<<<< HEAD:Web/public/Css/index.css
-<<<<<<< HEAD:public/Css/style.css
-body{
-=======
->>>>>>> f8c45039e960d5bc17d5e7bc9327c4fa65b2c172:public/Css/index.css
-========
-
-body{
->>>>>>>> 745736c3e2c48f6a77715b87688f792f4c4b489e:public/Css/style.css
-overflow-x: hidden;
->>>>>>> 745736c3e2c48f6a77715b87688f792f4c4b489e
 }
 
 /* .navbar {
@@ -45,11 +32,7 @@ a {
 
 @font-face {
     font-family: bosch;
-<<<<<<< HEAD
     src: url(../fonts/Neology\ Bold.woff.ttf);
-=======
-    src: url(Neology\ Bold.woff.ttf);
->>>>>>> 745736c3e2c48f6a77715b87688f792f4c4b489e
 }
 
 .font {
@@ -64,7 +47,6 @@ a {
 
 .margin {
     margin-inline: 10px;
-<<<<<<< HEAD
 }
 
 .containerPrincipal {
@@ -202,9 +184,7 @@ button.accordion-button.collapsed.d-flex::after {
 }
 button.accordion-button.d-flex::after {
     margin: 0 0 0 10px;
-=======
-  }
-  
+}
 .containerPrincipal {
 margin: 40px 0 0 0;
 height: 100%;
@@ -229,5 +209,4 @@ align-items: center;
 height: 40px;
 width: 100%;
 background-color: rgb(234, 236, 238);
->>>>>>> 745736c3e2c48f6a77715b87688f792f4c4b489e
 }
