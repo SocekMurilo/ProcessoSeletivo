@@ -12,5 +12,5 @@ router.post('/', login.pagLoginPost);
 router.get('/Login', login.pagLoginGet)
 router.get('/importar-excel', Import.Import_ExcelGet);
 router.post('/importar-excel', Import.Import_ExcelPost);
-
+router.get(grupos)
 module.exports = router;
