@@ -6,11 +6,10 @@ const home = require('./src/controllers/home');
 const login = require('./src/controllers/login');
 const Import = require ('./src/controllers/imp_Excel')
 
-
 router.get('/', home.pagInicialGet);
 router.post('/', login.pagLoginPost);
 router.get('/Login', login.pagLoginGet)
+router.get('/Logout', login.pagLogoutGet);
 router.get('/importar-excel', Import.Import_ExcelGet);
 router.post('/importar-excel', Import.Import_ExcelPost);
-router.get(grupos)
 module.exports = router;
