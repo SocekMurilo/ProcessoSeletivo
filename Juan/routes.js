@@ -1,11 +1,18 @@
-// Iniciando Route do Express
 const express = require('express');
-const route = express.Router();
+const router = express.Router();
 
 // Importando os Controllers
+const novoProcesso = require('./src/controllers/novoProcesso');
 const home = require('./src/controllers/home');
 
-// Iniciando as rotas
-route.get('/', home.pagInicialGet);
+router.post('/novoProcesso', novoProcesso);
 
-module.exports = route;
+// Iniciando as rotas
+router.get('/', home.pagInicialGet);
+
+router.get('/processos', home.processosGet);
+router.get('/participantes', home.participantesGet);
+router.get('/participante/:IDParticipante', home.participanteGet);
+router.get('/grupos', home.gruposGet);
+
+module.exports = router;

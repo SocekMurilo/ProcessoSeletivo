@@ -16,11 +16,11 @@ const etapas = database.define('Etapa', {
     },
     Data: {
     type: Sequelize.DATE,
-    allowNull: false
+    allowNull: true
     },
     Turno: {
     type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: true
     }
 });
 

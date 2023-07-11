@@ -1,11 +1,11 @@
-const sequelize = require('sequelize');
+const { Sequelize } = require('sequelize');
 
-//configurações da base de dados
-const database = new sequelize('ProcessoSeletivo', 'ProcessoSeletivo', 'etstech31415',
-{
-    dialect: 'mssql', host:'localhost', port: 61370
+const sequelize = new Sequelize('ProcessoSeletivo', 'ProcessoSeletivo', 'etstech31415', {
+  host: 'localhost',
+  dialect: 'mssql',
+  port: 60938
 });
 
-database.sync();
+sequelize.sync();
 
-module.exports = database;
+module.exports = sequelize;

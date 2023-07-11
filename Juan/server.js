@@ -1,17 +1,18 @@
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const routes = require('./routes');
 
 const app = express();
 
-app.use(express.urlencoded({ extended: true }));
-
-// Static files
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+app.use(fileUpload());
 
-// EJS
-app.set('views', './src/views');
 app.set('view engine', 'ejs');
+app.set('views', './src/views');
 
-app.use(routes);
+app.use('/', routes);
 
-app.listen(8080, () => console.log('Acesse: http://localhost:8080/'));
+app.listen(3000, () => {
+  console.log('Servidor rodando em http://localhost:3000');
+});

@@ -19,7 +19,7 @@ const participante = database.define('Participante', {
     allowNull: false
     },
     Telefone: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING(50),
     allowNull: false
     },
     Nascimento: {
@@ -48,10 +48,6 @@ const participante = database.define('Participante', {
     },
     Video: {
     type: Sequelize.STRING(255),
-    allowNull: false
-    },
-    Status: {
-    type: Sequelize.INTEGER,
     allowNull: false
     }
 });
