@@ -26,7 +26,7 @@
     <div class="hr" data-aos="fade-down"></div>
     <nav class="navbar bg-body-tertiary" data-aos="fade-down">
       <div class="container-fluid containerNav">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="/">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Bosch-logo.svg/2560px-Bosch-logo.svg.png"
             alt="Logo" width="150" height="33" class="d-inline-block
@@ -42,7 +42,7 @@
                 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
             </svg>
           </a>
-          <div class="dropdown">
+          <div class="dropdown" style="z-index: 100;">
             <a href class="margin dropdown-toggle link"
               data-bs-toggle="dropdown" aria-expanded="false">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -58,7 +58,7 @@
             <ul class="dropdown-menu dropdown-menu-end">
               <li><a class="dropdown-item" href="#">Perfil</a></li>
               <li><a class="dropdown-item" href="#">Editar</a></li>
-              <li><a class="dropdown-item" href="/Logout">Sair</a></li>
+              <li><a class="dropdown-item" href="#">Sair</a></li>
             </ul>
           </div>
         </div>
@@ -426,30 +426,36 @@
                       <!-- </div> -->
                     </div>
                   </div>
-                  <div class="tab-pane fade" id="profile-tab-pane"
-                    role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
+                  <div class="tab-pane fade d-flex justify-content-center align-items-center" id="profile-tab-pane"
+                    role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                    <button class="btn btn-light margin" data-bs-toggle="modal" data-bs-target="#myModal"><b>+</b></button>
+                  </div>
                   <div class="tab-pane fade" id="contact-tab-pane"
-                    role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
+                    role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+                    <button class="btn btn-light margin" data-bs-toggle="modal" data-bs-target="#myModal"><b>+</b></button>
+                  </div>
                   <div class="tab-pane fade" id="disabled-tab-pane"
-                    role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
+                    role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
+                    <button class="btn btn-light margin" data-bs-toggle="modal" data-bs-target="#myModal"><b>+</b></button>
+                  </div>
                 </div>
 
               </div>
             </div>
 
-            
-          </div>
-          <div class="collapse" id="collapseWidthExample"
-            style="margin-top: 5px; margin-bottom: 10px; position: inherit;">
-            <div class="d-flex flex-row">
-              <button class="btn btn-primary" id="select-all-btn">Todos</button>
-              <button class="btn btn-danger margin">Bloquear</button>
+            <div class="collapse" id="collapseWidthExample"
+              style="margin-top: 10px;">
+              <div class="d-flex flex-row">
+                <button class="btn btn-primary" id="select-all-btn">Todos</button>
+                <button class="btn btn-danger margin">Bloquear</button>
+              </div>
             </div>
+
           </div>
-          <div class="col-lg-4";>
+          <div class="col-lg-4">
             <div class="d-flex flex-column" data-aos="fade-left">
-              <a href="processos.html"><button class="btn btn-light mb-2 btnG">Processos</button></a>
-              <a href="participantes.html"><button
+              <a href="/Processo"><button class="btn btn-light mb-2 btnG">Processos</button></a>
+              <a href="/Participantes"><button
                   class="btn btn-light mb-2 btnG">Participantes</button></a>
               <a href="grupos"
                 class="btn btn-light btnG disabled d-flex justify-content-center align-items-center"

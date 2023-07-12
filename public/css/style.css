@@ -18,7 +18,7 @@ body {
     top: 0;
     left: 0;
     position: relative;
-    z-index: 1886;
+    z-index: 1030;
 }
 
 .containerNav {
@@ -184,29 +184,4 @@ button.accordion-button.collapsed.d-flex::after {
 }
 button.accordion-button.d-flex::after {
     margin: 0 0 0 10px;
-}
-.containerPrincipal {
-margin: 40px 0 0 0;
-height: 100%;
-border: 2px solid rgb(210, 210, 210);
-border-radius: 10px;
-}
-
-.navPrincipal {
-height: 40px;
-width: 100%;
-background-color: rgb(248, 249, 250);
-border-top-left-radius: 10px;
-border-top-right-radius: 10px;
-}
-
-.align {
-display: flex;
-align-items: center;
-}
-
-.navSecundaria {
-height: 40px;
-width: 100%;
-background-color: rgb(234, 236, 238);
 }

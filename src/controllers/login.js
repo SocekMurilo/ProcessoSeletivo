@@ -14,7 +14,7 @@ module.exports = {
 
         if (Number(req.body.RA) == NaN)
             return res.render('../views/Login', { erro: true });
-        
+
 
         const user = await User.findOne({
             raw: true,
@@ -29,7 +29,7 @@ module.exports = {
         if (!(await bcrypt.compare(req.body.password, user.password))) {
             return res.render('../views/Login', { erro: true });
         }
-        
+
         session = req.session;
         session.RA = user.RA;
 

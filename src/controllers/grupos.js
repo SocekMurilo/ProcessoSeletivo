@@ -1,5 +1,5 @@
 module.exports = {
-    async gruposGet(req, res){
+    async pagGruposGet(req, res){
         res.render('../views/grupos');
     }
 }
