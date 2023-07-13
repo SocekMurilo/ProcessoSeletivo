@@ -5,6 +5,7 @@ const Etapa = require('../model/etapas');
 const ParticipanteProcesso = require('../model/participanteProcesso');
 
 const XLSX = require('xlsx');
+const moment = require('moment');
 const { Op } = require('sequelize');
 
 module.exports = async function importarDados(req, res) {
@@ -61,11 +62,21 @@ module.exports = async function importarDados(req, res) {
     for (const participante of participantes) {
       const existingParticipante = await Participantes.findOne({
         where: 
-        { 
+        {
           [Op.or]: [
-            { Email: participante.Email },
-            { Telefone: participante.Telefone }
-          ] 
+            {
+              [Op.and]: [
+                { Email: participante.Email },
+                { Email: { [Op.ne]: 'Sem Formulário' } }
+              ]
+            },
+            {
+              [Op.and]: [
+                { Telefone: String(participante.Telefone) },
+                { Telefone: { [Op.ne]: 'Sem Formulário' } }
+              ]
+            }
+          ]
         }
       });
   

@@ -91,10 +91,10 @@
           <div class="alert alert-light accordion-button collapsed" role="alert"
             data-bs-toggle="collapse" data-bs-target="#collapse<%= i %>-<%= processosComEtapas[i].IDProcesso %>"
             aria-expanded="false" aria-controls="collapse<%= i %>-<%= processosComEtapas[i].IDProcesso %>">
-            <b><%= processosComEtapas[i].Nome %></b>
+            <a href="/<%= processosComEtapas[i].IDProcesso %>" class="link"><b><%= processosComEtapas[i].Nome %></b></a>
           </div>
           <div id="collapse<%= i %>-<%= processosComEtapas[i].IDProcesso %>" class="collapse">
-            <div class="card card-body">
+            <div class="card card-body barraY">
               <div id="primeiro-select">
                 <label for="etapa<%= i %>-<%= processosComEtapas[i].IDProcesso %>">Etapa:</label>
                 <select id="etapa<%= i %>-<%= processosComEtapas[i].IDProcesso %>" onchange="mostrarSegundoSelect()"
@@ -106,63 +106,62 @@
                   <% } %>
                 </select>
               </div>
-
-            <div id="etapa2" style="display: none;">
-              <label for="segundo-select" style="margin-top: 10px;">Dia:</label>
-              <select class="etapas form-select">
-                <option value="opcao">26/06/2023</option>
-                <option value="opcao">27/06/2023</option>
-                <option value="opcao">28/06/2023</option>
-              </select>
+      
+              <div id="etapa2" style="display: none;">
+                <label for="segundo-select" style="margin-top: 10px;">Dia:</label>
+                <select class="etapas form-select">
+                  <option value="opcao">26/06/2023</option>
+                  <option value="opcao">27/06/2023</option>
+                  <option value="opcao">28/06/2023</option>
+                </select>
+              </div>
+      
+              <div id="etapa3" style="display: none;">
+                <label for="segundo-select" style="margin-top: 10px;">Dia:</label>
+                <select class="etapas form-select">
+                  <option value="opcao">26/06/2024</option>
+                  <option value="opcao">27/06/2024</option>
+                  <option value="opcao">28/06/2024</option>
+                </select>
+              </div>
+      
+              <div id="etapa4" style="display: none;">
+                <label for="segundo-select" style="margin-top: 10px;">Dia:</label>
+                <select class="etapas form-select">
+                  <option value="opcao">26/06/2025</option>
+                  <option value="opcao">27/06/2025</option>
+                  <option value="opcao">28/06/2025</option>
+                </select>
+              </div>
+      
+              <div id="selectTurno" style="display: none;">
+                <label for="select-extra" style="margin-top: 10px;">Turno:</label>
+                <select id="select-extra" class="form-select">
+                  <option value="opcaoA">Ambos</option>
+                  <option value="opcaoB">Manhã</option>
+                  <option value="opcaoC">Tarde</option>
+                </select>
+              </div>
+      
+              <br>
+      
+              <ul class="list-group list-group-flush">
+                <% processosComEtapas[i].participantes.forEach(participante => { %>
+                  <% if (participante.IDProcesso === processosComEtapas[i].IDProcesso && participante.Status >= 1) { %>
+                    <li class="list-group-item list-group-item-action">
+                      <a href="/participante/<%= participante.IDParticipante %>">
+                        <%= participante.Nome %>
+                      </a>
+                    </li>
+                  <% } %>
+                <% }) %>
+              </ul>
             </div>
-
-            <div id="etapa3" style="display: none;">
-              <label for="segundo-select" style="margin-top: 10px;">Dia:</label>
-              <select class="etapas form-select">
-                <option value="opcao">26/06/2024</option>
-                <option value="opcao">27/06/2024</option>
-                <option value="opcao">28/06/2024</option>
-              </select>
-            </div>
-
-            <div id="etapa4" style="display: none;">
-              <label for="segundo-select" style="margin-top: 10px;">Dia:</label>
-              <select class="etapas form-select">
-                <option value="opcao">26/06/2025</option>
-                <option value="opcao">27/06/2025</option>
-                <option value="opcao">28/06/2025</option>
-              </select>
-            </div>
-
-            <div id="selectTurno" style="display: none;">
-              <label for="select-extra" style="margin-top: 10px;">Turno:</label>
-              <select id="select-extra" class="form-select">
-                <option value="opcaoA">Ambos</option>
-                <option value="opcaoB">Manhã</option>
-                <option value="opcaoC">Tarde</option>
-              </select>
-            </div>
-
-            <br>
-
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item list-group-item-action"><a
-                  href>Nome completo da pessoa aqui</a></li>
-              <li class="list-group-item list-group-item-action"><a
-                  href>Nome completo da pessoa aqui</a></li>
-              <li class="list-group-item list-group-item-action"><a
-                  href>Nome completo da pessoa aqui</a></li>
-              <li class="list-group-item list-group-item-action"><a
-                  href>Nome completo da pessoa aqui</a></li>
-              <li class="list-group-item list-group-item-action"><a
-                  href>Nome completo da pessoa aqui</a></li>
-            </ul>
           </div>
-        </div>
-
-        <hr>
-
-        <% } %>
+      
+          <hr>
+      <% } %>
+      
 
         
       </div>
@@ -212,7 +211,12 @@
                 <input class="form-control" type="file" name="arquivo">
               </div>
 
+              <div class="d -flex flex-row align-items-center">
               <button type="submit" class="btn btn-primary">Criar</button>
+              <div class="spinner-grow text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
             </form>
           </div>
 
@@ -234,7 +238,7 @@
 
             // Adiciona os campos de entrada com base no número de etapas
             for (let i = 1; i <= numEtapas; i++) {
-              var input = $(`<input type="text" class="form-control" style="margin-top: 10px;, margin-bottom: 10px;" placeholder="Nome etapa ${i}" name="etapa${i}">`);
+              var input = $(`<input type="text" class="form-control" style="margin-top: 10px;, margin-bottom: 10px;" placeholder="Nome etapa ${i}" name="etapa${i}" required>`);
               $("#inputsContainer").append(input);
             }
 

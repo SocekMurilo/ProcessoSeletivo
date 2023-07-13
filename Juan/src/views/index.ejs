@@ -14,7 +14,7 @@
       rel="stylesheet"
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- Fontes -->
@@ -75,7 +75,8 @@
               <div class="card-header">
                 <div class="d-flex justify-content-between
                         align-items-center">
-                  <h5 class="font">Processo atual</h5>
+                  <h5 class="font"><a data-bs-toggle="modal"
+                    data-bs-target="#myModal" class="link" href=""><%= processo.Nome %></a></h5>
                   <div class="d-flex flex-row">
                     <div class="margin link">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16"
@@ -229,7 +230,7 @@
                     <div class="ms-auto">
                       Filtros:
                       <br>
-                      <button class="btn btn-primary" style="max-height: 50px; margin-bottom: 2px;">Aplicar filtros</button>
+                      <button class="btn btn-primary" style="max-height: 50px; margin-bottom: 2px;" id="aplicarFiltro">Aplicar filtros</button>
                       <br>
                       <button class="btn btn-danger" style="max-height: 48px;" id="limparFiltros">Limpar filtros</button>
                     </div>
@@ -240,30 +241,18 @@
               <div class="card-body p-0">
 
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link active btn-desativar" id="home-tab"
-                      data-bs-toggle="tab" data-bs-target="#home-tab-pane"
-                      type="button" role="tab" aria-controls="home-tab-pane"
-                      aria-selected="true" style="border-top-left-radius: 0;">Prova</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link btn-ativar" id="profile-tab"
-                      data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
-                      type="button" role="tab" aria-controls="profile-tab-pane"
-                      aria-selected="false">Dinâmica 1</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link btn-ativar" id="contact-tab"
-                      data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
-                      type="button" role="tab" aria-controls="contact-tab-pane"
-                      aria-selected="false">Dinâmica 2</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="disabled-tab"
-                      data-bs-toggle="tab" data-bs-target="#disabled-tab-pane"
-                      type="button" role="tab" aria-controls="disabled-tab-pane"
-                      aria-selected="false" disabled>Entrevista</button>
-                  </li>
+                  <% for (let i = 0; i < etapas.length; i++) { %>
+                    <% const etapa = etapas[i]; %>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link <%= i === 0 ? 'active btn-desativar' : 'btn-ativar' %>"
+                        id="<%= etapa.Nome.toLowerCase().replace(' ', '-') %>-tab"
+                        data-bs-toggle="tab" data-bs-target="#<%= etapa.Nome.toLowerCase().replace(' ', '-') %>-tab-pane"
+                        type="button" role="tab" aria-controls="<%= etapa.Nome.toLowerCase().replace(' ', '-') %>-tab-pane"
+                        aria-selected="<%= i === 0 %>">
+                        <%= etapa.Nome %>
+                      </button>
+                    </li>
+                  <% } %>
                 </ul>
                 <div class="tab-content" id="myTabContent">
                   <div class="tab-pane fade show active" id="home-tab-pane"
@@ -271,11 +260,10 @@
                     <!-- <div class="rolagem"> -->
                     <div class="accordion accordion-flush"
                       id="accordionFlushExample">
-
+                      <% participantes.forEach(participante => { %>
                       <div class="accordion-item">
                         <h2 class="accordion-header">
                           <div class="d-flex flex-row align-items-center">
-
                             <div class="collapse collapse-horizontal"
                               id="collapseWidthExample">
                               <input class="form-check-input margin"
@@ -285,17 +273,17 @@
                             </div>
                             <button class="accordion-button collapsed d-flex"
                               type="button" data-bs-toggle="collapse"
-                              data-bs-target="#flush-collapseOne"
+                              data-bs-target="#flush-collapse<%= participante.IDParticipante %>"
                               aria-expanded="false"
-                              aria-controls="flush-collapseOne">
-                              Nome completo aqui
+                              aria-controls="flush-collapse<%= participante.IDParticipante %>">
+                              <%= participante.Nome %>
                               <div style="margin-left: auto;">
                                 Nota
                               </div>
                             </button>
                           </div>
                         </h2>
-                        <div id="flush-collapseOne"
+                        <div id="flush-collapse<%= participante.IDParticipante %>"
                           class="accordion-collapse
                                     collapse">
                           <div class="accordion-body">Placeholder
@@ -308,121 +296,8 @@
                             the first item's accordion body.</div>
                         </div>
                       </div>
-                      <div class="accordion-item">
-                        <h2 class="accordion-header">
-                          <div class="d-flex flex-row align-items-center">
-                            <div class="collapse collapse-horizontal"
-                              id="collapseWidthExample">
-                              <input class="form-check-input margin"
-                                type="checkbox"
-                                id="checkboxNoLabel" value aria-label="..."
-                                style="height: 20px; width: 20px;">
-                            </div>
-                            <button class="accordion-button collapsed d-flex"
-                              type="button" data-bs-toggle="collapse"
-                              data-bs-target="#flush-collapseTwo"
-                              aria-expanded="false"
-                              aria-controls="flush-collapseTwo">
-                              Outro nome completo aqui
-                              <div style="margin-left: auto;">
-                                Nota
-                              </div>
-                            </button>
-                          </div>
-                        </h2>
-                        <div id="flush-collapseTwo"
-                          class="accordion-collapse
-                                    collapse">
-                          <div class="accordion-body">Placeholder
-                            content
-                            for
-                            this accordion, which is intended to
-                            demonstrate
-                            the <code>.accordion-flush</code> class.
-                            This is
-                            the second item's accordion body. Let's
-                            imagine
-                            this being filled with some actual content.</div>
-                        </div>
-                      </div>
-                      <div class="accordion-item">
-                        <h2 class="accordion-header">
-                          <div class="d-flex flex-row align-items-center">
-                            <div class="collapse collapse-horizontal"
-                              id="collapseWidthExample">
-                              <input class="form-check-input margin"
-                                type="checkbox"
-                                id="checkboxNoLabel" value aria-label="..."
-                                style="height: 20px; width: 20px;">
-                            </div>
-                            <button class="accordion-button collapsed d-flex"
-                              type="button" data-bs-toggle="collapse"
-                              data-bs-target="#flush-collapseThree"
-                              aria-expanded="false"
-                              aria-controls="flush-collapseThree">
-                              mais um nome completo aqui
-                              <div style="margin-left: auto;">
-                                Nota
-                              </div>
-                            </button>
-                          </div>
-                        </h2>
-                        <div id="flush-collapseThree"
-                          class="accordion-collapse collapse">
-                          <div class="accordion-body">
-                            <ul>
-                              <li><b>Prova: </b>97</li>
-                              <li><b>Etapa 1</b>
-                                <!-- Observe que a tag de fechamento </li> não é colocada aqui! -->
-                                <ul>
-                                  <li><b>Desafio 1: </b> 73</li>
-                                  <li><b>Desafio 2: </b> 84</li>
-                                  <li><b>Observações</b>
-                                    <!-- O mesmo para a segunda lista não ordenada aninhada (Same for the second nested unordered list)! -->
-                                    <ul>
-                                      <li>segundo item segundo subitem primeiro
-                                        sub-subitem</li>
-                                      <li>segundo item segundo subitem segundo
-                                        sub-subitem</li>
-                                      <li>segundo item segundo subitem terceiro
-                                        sub-subitem</li>
-                                    </ul>
-                                  </li>
-                                  <!-- A tag de fechamento </li>, que contém a terceira lista não ordenada (Closing </li> tag for the li that contains the third unordered list) -->
-                                  <li><b>Desafio extra: </b>68</li>
-                                </ul>
-                              </li>
-                              <!-- Aqui entra a tag de fechamento </li> (Here is the closing </li> tag) -->
-                              <li><b>Etapa 2</b>
-                                <!-- Observe que a tag de fechamento </li> não é colocada aqui! -->
-                                <ul>
-                                  <li><b>Desafio 1: </b> 73</li>
-                                  <li><b>Desafio 2: </b> 84</li>
-                                  <li><b>Observações</b>
-                                    <!-- O mesmo para a segunda lista não ordenada aninhada (Same for the second nested unordered list)! -->
-                                    <ul>
-                                      <li>segundo item segundo subitem primeiro
-                                        sub-subitem</li>
-                                      <li>segundo item segundo subitem segundo
-                                        sub-subitem</li>
-                                      <li>segundo item segundo subitem terceiro
-                                        sub-subitem</li>
-                                    </ul>
-                                  </li>
-                                  <!-- A tag de fechamento </li>, que contém a terceira lista não ordenada (Closing </li> tag for the li that contains the third unordered list) -->
-                                  <li><b>Desafio extra: </b>68</li>
-                                </ul>
-                              </li>
-                              <!-- Aqui entra a tag de fechamento </li> (Here is the closing </li> tag) -->
-                              <li><b>Entrevista</b>
-                                <ul>
-                                  <li><b>Observações:</b> </li>
-                                </ul>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
+                      <% }) %>
+
                       <!-- </div> -->
                     </div>
                   </div>
@@ -466,16 +341,113 @@
       </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+  
+          <!-- Cabeçalho do Modal -->
+          <div class="modal-header">
+            <h4 class="modal-title">Editar Processo</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+  
+          <!-- Corpo do Modal -->
+          <div class="modal-body">
+              <form action="/editarProcesso" method="post"
+                enctype="multipart/form-data">
+                <div class="mb-3">
+                  <label for="nome" class="form-label">Nome</label>
+                  <input type="text" class="form-control" name="nome" value="<%= processo.Nome %>"
+                    required>
+                </div>
+                <div class="mb-3">
+                  <label for="data" class="form-label">Data</label>
+                  <input type="date" class="form-control" name="data" value="<%= processo.Data %>"
+                    required>
+                </div>
+                <div class="mb-3">
+                  <label for="etapas" class="form-label">Etapas</label>
+                  <input type="number" class="form-control" name="etapa" value="<%= processo.NumEtapas %>"
+                    id="etapaInput" 
+                    required>
+                </div>
+  
+                <div class="mb-3">
+                  <div id="inputsContainer"></div>
+                </div>
+  
+                <div class="mb-3">
+                  <label class="form-label" for="arquivo">Planilha Excel</label>
+                  <input class="form-control" type="file" name="arquivo">
+                </div>
+  
+                <button type="submit" class="btn btn-info" style="color: white;">Editar</button>
+              </form>
+            </div>
 
+    <script src="js/script.js"></script>
+    <script src="js/filtros.js"></script>
+    
+    <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"></script>
+      <script type="text/javascript">        
+      $(document).ready(function() {
+        // Função para atualizar os campos de entrada com base no valor do #etapaInput
+        function atualizarCamposDeEntrada() {
+          var numEtapas = parseInt($("#etapaInput").val());
+
+
+          // Remove todos os campos de entrada anteriores
+          $("#inputsContainer").empty();
+
+          // Adiciona os campos de entrada com base no número de etapas
+          for (let i = 1; i <= numEtapas; i++) {
+            var input = $(`<input type="text" class="form-control" style="margin-top: 10px;, margin-bottom: 10px;" placeholder="Nome etapa ${i}" name="etapa${i}" required>`);
+            $("#inputsContainer").append(input);
+          }
+
+          // Atualiza o número de etapas nos botões
+          $("#incrementa").attr("max", numEtapas);
+              $("#decrementa").attr("max", numEtapas);
+        }
+
+        // Atualiza os campos de entrada quando a página é carregada
+        atualizarCamposDeEntrada();
+
+        // Atualiza os campos de entrada quando o valor do #etapaInput é alterado
+        $("#etapaInput").on("input", function() {
+          atualizarCamposDeEntrada();
+        });
+        
+        // Envia os valores das etapas para o back-end
+        // $.ajax({
+        //   url: "/importarDados",
+        //   method: "POST",
+        //   data: {
+        //     etapa: numEtapas
+        //   },
+        //   success: function(response) {
+        //     // Manipula a resposta do back-end, se necessário
+        //     console.log(response);
+        //   },
+        //   error: function(error) {
+        //     // Manipula o erro, se necessário
+        //     console.log(error);
+        //   }
+        // });
+      });
+      </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
                   AOS.init();
                 </script>
+
+
 
   </body>
 </html>

@@ -14,5 +14,6 @@ router.get('/processos', home.processosGet);
 router.get('/participantes', home.participantesGet);
 router.get('/participante/:IDParticipante', home.participanteGet);
 router.get('/grupos', home.gruposGet);
+router.get('/:IDProcesso', home.processoGet);
 
 module.exports = router;

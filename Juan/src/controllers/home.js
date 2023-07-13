@@ -3,29 +3,134 @@ const Etapas = require('../model/etapas');
 const Participante = require('../model/participante');
 const ParticipanteProcesso = require('../model/participanteProcesso');
 
+
+const { Op } = require('sequelize');
+
+let ultimoIDProcessoAcessado = null;
+
 module.exports = {
     async pagInicialGet(req, res){
-        res.render('../views/index');
+      try {
+        if (ultimoIDProcessoAcessado) {
+          // Se o último ID de processo acessado existir, redireciona para ele
+          res.redirect(`/${ultimoIDProcessoAcessado}`);
+        } else {
+          // Caso contrário, obtenha o IDProcesso mais alto
+          const highestIDProcesso = await Processos.max('IDProcesso');
+          ultimoIDProcessoAcessado = highestIDProcesso;
+    
+          // Redireciona para o último ID de processo acessado
+          res.redirect(`/${ultimoIDProcessoAcessado}`);
+        }
+      } catch (error) {
+        console.error('Erro ao obter o IDProcesso mais alto:', error);
+        res.render('error', { message: 'Erro ao obter o IDProcesso mais alto' });
+      }
     },
 
-    async processosGet(req, res){
+    async processosGet(req, res) {
+      try {
         const processos = await Processos.findAll({
-            raw: true,
-            attributes: ['IDProcesso', 'Nome', 'Data', 'NumEtapas']
+          raw: true,
+          attributes: ['IDProcesso', 'Nome', 'Data', 'NumEtapas'],
         });
+    
         const etapas = await Etapas.findAll({
-            raw: true,
-            attributes: ['IDEtapa', 'Nome', 'Data', 'Turno', 'IDProcesso'],
+          raw: true,
+          attributes: ['IDEtapa', 'Nome', 'Data', 'Turno', 'IDProcesso'],
         });
-
+    
+        const participantes = await Participante.findAll({
+          raw: true,
+          attributes: ['IDParticipante', 'Nome'],
+        });
+    
+        const participantesProcessos = await ParticipanteProcesso.findAll({
+          raw: true,
+          attributes: ['IDParticipante', 'IDProcesso', 'Status'],
+          where: {
+            Status: {
+              [Op.gte]: 1, // Apenas participantes com status maior ou igual a 1
+            },
+          },
+        });
+    
         const processosComEtapas = processos.map((processo) => {
-            const etapasDoProcesso = etapas.filter((etapa) => etapa.IDProcesso === processo.IDProcesso);
-            return { ...processo, etapas: etapasDoProcesso };
+          const etapasDoProcesso = etapas.filter((etapa) => etapa.IDProcesso === processo.IDProcesso);
+          const participantesDoProcesso = participantesProcessos
+            .filter((participante) => participante.IDProcesso === processo.IDProcesso)
+            .map((participante) => ({
+              ...participante,
+              Nome: participantes.find((p) => p.IDParticipante === participante.IDParticipante)?.Nome,
+            }));
+    
+          return { ...processo, etapas: etapasDoProcesso, participantes: participantesDoProcesso };
         });
-        
-        res.render('../views/processos', { processosComEtapas });
+    
+        res.render('../views/processos', { processosComEtapas, participantes });
+      } catch (error) {
+        console.error('Erro ao obter os dados dos processos:', error);
+        res.render('error'); // Renderiza uma página de erro caso ocorra uma exceção
+      }
     },
 
+    async processoGet(req, res) {
+      const processoID = req.params.IDProcesso;
+
+      ultimoIDProcessoAcessado = processoID;
+    
+      try {
+        const processo = await Processos.findByPk(processoID, {
+          raw: true,
+          attributes: ['IDProcesso', 'Nome', 'Data', 'NumEtapas'],
+        });
+      
+        const etapas = await Etapas.findAll({
+          raw: true,
+          attributes: ['IDEtapa', 'Nome', 'Data', 'Turno'],
+          where: { IDProcesso: processo.IDProcesso },
+        });
+    
+        if (!processo) {
+          return res.render('error', { message: 'Processo não encontrado' });
+        }
+    
+        const participantesProcesso = await ParticipanteProcesso.findAll({
+          raw: true,
+          attributes: ['IDParticipante', 'IDProcesso', 'Status'],
+          where: {
+            IDProcesso: processoID,
+            Status: {
+              [Op.gte]: 1,
+            },
+          },
+        });
+    
+        const participantesIDs = participantesProcesso.map((participante) => participante.IDParticipante);
+    
+        const participantes = await Participante.findAll({
+          raw: true,
+          attributes: ['IDParticipante', 'Nome'],
+          where: {
+            IDParticipante: {
+              [Op.in]: participantesIDs,
+            },
+          },
+        });
+    
+        const participantesDoProcesso = participantesProcesso.map((participante) => ({
+          ...participante,
+          Nome: participantes.find((p) => p.IDParticipante === participante.IDParticipante)?.Nome,
+        }));
+    
+        res.render('../views/index', { processo, participantes: participantesDoProcesso, etapas });
+      } catch (error) {
+        console.error('Erro ao obter os dados do processo:', error);
+        res.render('error', { message: 'Erro ao obter os dados do processo' });
+      }
+    },
+    
+    
     async participantesGet(req, res) {
         const participantes = await Participante.findAll({
           raw: true,

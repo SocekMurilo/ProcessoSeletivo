@@ -179,9 +179,18 @@ a {
     min-width: 100px;
 }
 
-button.accordion-button.collapsed.d-flex::after {
+button.accordion-button.collapsed::after {
     margin: 0 0 0 10px;
 }
-button.accordion-button.d-flex::after {
+button.accordion-button::after {
     margin: 0 0 0 10px;
+}
+
+.nav-tabs .nav-item:first-child .nav-link {
+    border-top-left-radius: 0;
+}
+
+.barraY {
+    max-height: 300px;
+    overflow-y: auto;
 }

@@ -1,6 +1,7 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
 const routes = require('./routes');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
