@@ -7,6 +7,7 @@ const participante = require('./src/controllers/partipante');
 const participantes = require('./src/controllers/participantes');
 const novoProcesso = require('./src/controllers/novoProcesso');
 const grupo = require('./src/controllers/grupos');
+const cadastro = require('./src/controllers/cadastrar')
 
 
 router.get('/', home.pagInicialGet);
@@ -19,5 +20,7 @@ router.get('/Grupos', grupo.pagGruposGet);
 
 router.post('/', login.pagLoginPost);
 router.post('/Novo Processo', novoProcesso);
+
+router.post('/Cadastrar', cadastro.pagCadastroPost)
 
 module.exports = router;

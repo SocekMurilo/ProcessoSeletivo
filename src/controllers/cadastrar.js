@@ -1,8 +1,9 @@
 const Sequelize = require("sequelize");
 const User = require("../model/User")
+const bcrypt = require('bcryptjs')
 
 module.exports = {
-    async pagCadastroGet(req, res) {
+    async pagCadastroPost(req, res) {
         var dados = req.body;
         dados.password = await bcrypt.hash(dados.password, 8);
 

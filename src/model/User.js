@@ -8,7 +8,7 @@ const User = db.define('Usuarios', {
         allowNull: false,
         primaryKey: true
     },
-    RA: {
+    EDV: {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true

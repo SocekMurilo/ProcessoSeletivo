@@ -12,15 +12,15 @@ module.exports = {
     async pagLoginPost(req, res) {
         // console.log(req.session)
 
-        if (Number(req.body.RA) == NaN)
+        if (Number(req.body.EDV) == NaN)
             return res.render('../views/Login', { erro: true });
 
 
         const user = await User.findOne({
             raw: true,
-            attributes: ['id', 'RA', 'password'],
+            attributes: ['id', 'EDV', 'password'],
             where: {
-                RA: req.body.RA
+                EDV: req.body.EDV
             }
         })
         if (user == null) {
@@ -31,7 +31,7 @@ module.exports = {
         }
 
         session = req.session;
-        session.RA = user.RA;
+        session.EDV = user.EDV;
 
         // console.log(session)
 
