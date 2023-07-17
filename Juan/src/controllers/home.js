@@ -123,7 +123,7 @@ module.exports = {
           Nome: participantes.find((p) => p.IDParticipante === participante.IDParticipante)?.Nome,
         }));
     
-        res.render('../views/index', { processo, participantes: participantesDoProcesso, etapas });
+        res.render('../views/index', { processo, participantes: participantesDoProcesso, etapas});
       } catch (error) {
         console.error('Erro ao obter os dados do processo:', error);
         res.render('error', { message: 'Erro ao obter os dados do processo' });

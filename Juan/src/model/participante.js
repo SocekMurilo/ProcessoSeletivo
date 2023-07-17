@@ -3,8 +3,6 @@ const Sequelize = require('sequelize');
 const database = require('../config/db');
 
 const processos = require('./processos');
-const etapas = require('./etapas');
-const notas = require('./notas');
 
 // Criando a tabela Participante
 const participante = database.define('Participante', {
@@ -63,14 +61,6 @@ const participante = database.define('Participante', {
 participante.belongsTo(processos, {
     constraint: true, //Garantir integridade referencial
     foreignKey: 'IDProcesso'
-});
-participante.belongsTo(etapas, {
-    constraint: true, //Garantir integridade referencial
-    foreignKey: 'IDEtapa'
-});
-participante.belongsTo(notas, {
-    constraint: true, //Garantir integridade referencial
-    foreignKey: 'IDNota'
 });
 
 // Exportando essa tabela

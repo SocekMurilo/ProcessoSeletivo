@@ -127,5 +127,36 @@ document.getElementById("limparFiltros").addEventListener("click", function() {
   }
 });
 
+$(document).ready(function() {
+  // Capturar o evento de clique no botão da etapa
+  $('.nav-link').click(function() {
+    // Obter o índice da etapa a partir do atributo data-index
+    const indiceEtapa = $(this).data('index');
+    const idEtapa = $(this).data('id');
+    
+    // Imprimir o índice da etapa selecionada no console
+    console.log('Índice da etapa selecionada:', indiceEtapa);
+    console.log('ID da etapa selecionada:', idEtapa);
+  });
+});
+
+let lastClickTime = 0;
+
+function tabClick(event) {
+  const currentTime = new Date().getTime();
+  
+  if (currentTime - lastClickTime < 300) {
+    const myModal = new bootstrap.Modal(document.getElementById('modal-1'));
+    myModal.show();
+  }
+  
+  lastClickTime = currentTime;
+}
+
+
+
+
+
+
 
 
