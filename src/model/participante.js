@@ -15,44 +15,48 @@ const participante = database.define('Participante', {
     primaryKey: true
     },
     Nome: {
-    type: Sequelize.STRING(60),
+    type: Sequelize.STRING(255),
     allowNull: false
     },
     Telefone: {
-    type: Sequelize.INTEGER,
-    allowNull: false
+    type: Sequelize.STRING(50),
+    allowNull: true,
+    defaultValue: 'Não Informado'
     },
     Nascimento: {
-    type: Sequelize.DATE,
-    allowNull: false
+    type: Sequelize.STRING(255),
+    allowNull: true,
+    defaultValue: 'Não Informado'
     },
     Idade: {
-    type: Sequelize.INTEGER,
-    allowNull: false
+    type: Sequelize.STRING(50),
+    allowNull: true,
+    defaultValue: 'Não Informado'
     },
     Email: {
     type: Sequelize.STRING(255),
-    allowNull: false
+    allowNull: true,
+    defaultValue: 'Não Informado'
     },
     Cursos: {
     type: Sequelize.STRING(255),
-    allowNull: false
+    allowNull: true,
+    defaultValue: 'Não Informado'
     },
     Idiomas: {
     type: Sequelize.STRING(255),
-    allowNull: false
+    allowNull: true,
+    defaultValue: 'Não Informado'
     },
     Curriculo: {
     type: Sequelize.STRING(255),
-    allowNull: false
+    allowNull: true,
+    defaultValue: 'Não Informado'
     },
     Video: {
     type: Sequelize.STRING(255),
-    allowNull: false
-    },
-    Status: {
-    type: Sequelize.INTEGER,
-    allowNull: false
+    allowNull: true,
+    defaultValue: 'Não Informado'
     }
 });
 

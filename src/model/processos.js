@@ -1,25 +1,28 @@
 const Sequelize = require('sequelize');
 const database = require('../config/db');
+const Etapa = require('./etapas');
 
-const processos = database.define('Processo', {
-    IDProcesso: {
+const Processo = database.define('Processo', {
+  IDProcesso: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
-    },
-    Nome: {
+  },
+  Nome: {
     type: Sequelize.STRING(100),
     allowNull: false
-    },
-    Data: {
+  },
+  Data: {
     type: Sequelize.DATE,
     allowNull: false
-    },
-    NumEtapas: {
+  },
+  NumEtapas: {
     type: Sequelize.INTEGER,
     allowNull: false
-    }
+  }
 });
 
-module.exports = processos;
+Processo.hasMany(Etapa, { foreignKey: 'IDProcesso', as: 'etapas' });
+
+module.exports = Processo;

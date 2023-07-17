@@ -54,7 +54,7 @@
         <h1 class="font">Página do participante</h1>
         <div class="alert alert-light d-flex flex-column align-items-start" role="alert">
           <div><b>Nome Completo:</b> <%= participante.Nome %></div>
-          <div><!-- <b>Data de nascimento: </b><%= participante.Nascimento %> <b>|</b> --> <b>Idade: </b> <%= participante.Idade %></div> 
+          <div><b>Data de nascimento: </b><%= participante.Nascimento %> <b>|</b> <b>Idade: </b> <%= participante.Idade %></div> 
           <div><b>Email: </b> <%= participante.Email %></div>
           <div><b>Telefone: </b> <%= participante.Telefone %></div>
           <div><b>Cursos: </b> <%= participante.Cursos %></div>
@@ -67,6 +67,7 @@
           <h6 class="font2">Processos</h6>
 
           <% processosParticipante.forEach((processo, index) => { %>
+            <% console.log(processo) %>
           <div class="accordion" id="accordionExample">
             <div class="alert alert-light accordion-button collapsed" role="alert"
               data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>"

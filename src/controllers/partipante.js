@@ -1,6 +1,6 @@
 const Processos = require('../model/processos');
 const Participante = require('../model/participante');
-const ParticipanteProcesso = require('../model/participantesProcesso');
+const ParticipanteProcesso = require('../model/participanteProcesso');
 
 module.exports = {
     async pagParticipanteGet(req, res) {

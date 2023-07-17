@@ -86,113 +86,84 @@
 
       <br>
 
-      <div class="accordion" id="accordionExample">
-        <div class="alert alert-light accordion-button collapsed" role="alert"
-          data-bs-toggle="collapse" data-bs-target="#collapseOne"
-          aria-expanded="false" aria-controls="collapseOne">
-          Nome do processo aqui
-        </div>
-        <div id="collapseOne" class="collapse">
-          <div class="card card-body">
-
-            <div id="primeiro-select">
-              <label for="etapa">Etapa:</label>
-              <select id="etapa" onchange="mostrarSegundoSelect()"
-                class="form-select">
-                <option value="etapa1">Prova</option>
-                <option value="etapa2">Dinâmica 1</option>
-                <option value="etapa3">Dinâmica 2</option>
-                <option value="etapa4">Entrevista</option>
-              </select>
-            </div>
-
-            <div id="etapa2" style="display: none;">
-              <label for="segundo-select" style="margin-top: 10px;">Dia:</label>
-              <select class="etapas form-select">
-                <option value="opcao">26/06/2023</option>
-                <option value="opcao">27/06/2023</option>
-                <option value="opcao">28/06/2023</option>
-              </select>
-            </div>
-
-            <div id="etapa3" style="display: none;">
-              <label for="segundo-select" style="margin-top: 10px;">Dia:</label>
-              <select class="etapas form-select">
-                <option value="opcao">26/06/2024</option>
-                <option value="opcao">27/06/2024</option>
-                <option value="opcao">28/06/2024</option>
-              </select>
-            </div>
-
-            <div id="etapa4" style="display: none;">
-              <label for="segundo-select" style="margin-top: 10px;">Dia:</label>
-              <select class="etapas form-select">
-                <option value="opcao">26/06/2025</option>
-                <option value="opcao">27/06/2025</option>
-                <option value="opcao">28/06/2025</option>
-              </select>
-            </div>
-
-            <div id="selectTurno" style="display: none;">
-              <label for="select-extra" style="margin-top: 10px;">Turno:</label>
-              <select id="select-extra" class="form-select">
-                <option value="opcaoA">Ambos</option>
-                <option value="opcaoB">Manhã</option>
-                <option value="opcaoC">Tarde</option>
-              </select>
-            </div>
-
-            <br>
-
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item list-group-item-action"><a
-                  href>Nome completo da pessoa aqui</a></li>
-              <li class="list-group-item list-group-item-action"><a
-                  href>Nome completo da pessoa aqui</a></li>
-              <li class="list-group-item list-group-item-action"><a
-                  href>Nome completo da pessoa aqui</a></li>
-              <li class="list-group-item list-group-item-action"><a
-                  href>Nome completo da pessoa aqui</a></li>
-              <li class="list-group-item list-group-item-action"><a
-                  href>Nome completo da pessoa aqui</a></li>
-            </ul>
+      <% for (let i = processosComEtapas.length - 1; i > -1; i--) { %>
+        <div class="accordion" id="accordionExample">
+          <div class="alert alert-light accordion-button collapsed" role="alert"
+            data-bs-toggle="collapse" data-bs-target="#collapse<%= i %>-<%= processosComEtapas[i].IDProcesso %>"
+            aria-expanded="false" aria-controls="collapse<%= i %>-<%= processosComEtapas[i].IDProcesso %>">
+            <a href="/<%= processosComEtapas[i].IDProcesso %>" class="link"><b><%= processosComEtapas[i].Nome %></b></a>
           </div>
-        </div>
-
-        <hr>
-
-        <div class="alert alert-light accordion-button collapsed" role="alert"
-          data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-          aria-expanded="false" aria-controls="collapseTwo">
-          Nome do outro processo aqui
-        </div>
-        <div id="collapseTwo" class="collapse">
-          <div class="card card-body">
-
-            <label for="etapa">Etapa:</label>
-            <select id="etapa" class="form-select">
-              <option value="etapa1">Prova</option>
-              <option value="etapa2">Dinâmica 1</option>
-              <option value="etapa3">Dinâmica 2</option>
-              <option value="etapa4">Entrevista</option>
-            </select>
-
-            <br>
-
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item list-group-item-action"><a
-                  href>Nome completo da pessoa aqui</a></li>
-              <li class="list-group-item list-group-item-action"><a
-                  href>Nome completo da pessoa aqui</a></li>
-              <li class="list-group-item list-group-item-action"><a
-                  href>Nome completo da pessoa aqui</a></li>
-              <li class="list-group-item list-group-item-action"><a
-                  href>Nome completo da pessoa aqui</a></li>
-              <li class="list-group-item list-group-item-action"><a
-                  href>Nome completo da pessoa aqui</a></li>
-            </ul>
+          <div id="collapse<%= i %>-<%= processosComEtapas[i].IDProcesso %>" class="collapse">
+            <div class="card card-body barraY">
+              <div id="primeiro-select">
+                <label for="etapa<%= i %>-<%= processosComEtapas[i].IDProcesso %>">Etapa:</label>
+                <select id="etapa<%= i %>-<%= processosComEtapas[i].IDProcesso %>" onchange="mostrarSegundoSelect()"
+                  class="form-select">
+                  <% for (let j = 0; j < processosComEtapas[i].etapas.length; j++) { %>
+                    <option value="etapa<%= j %>-<%= processosComEtapas[i].IDProcesso %>">
+                      <%= processosComEtapas[i].etapas[j].Nome %>
+                    </option>
+                  <% } %>
+                </select>
+              </div>
+      
+              <div id="etapa2" style="display: none;">
+                <label for="segundo-select" style="margin-top: 10px;">Dia:</label>
+                <select class="etapas form-select">
+                  <option value="opcao">26/06/2023</option>
+                  <option value="opcao">27/06/2023</option>
+                  <option value="opcao">28/06/2023</option>
+                </select>
+              </div>
+      
+              <div id="etapa3" style="display: none;">
+                <label for="segundo-select" style="margin-top: 10px;">Dia:</label>
+                <select class="etapas form-select">
+                  <option value="opcao">26/06/2024</option>
+                  <option value="opcao">27/06/2024</option>
+                  <option value="opcao">28/06/2024</option>
+                </select>
+              </div>
+      
+              <div id="etapa4" style="display: none;">
+                <label for="segundo-select" style="margin-top: 10px;">Dia:</label>
+                <select class="etapas form-select">
+                  <option value="opcao">26/06/2025</option>
+                  <option value="opcao">27/06/2025</option>
+                  <option value="opcao">28/06/2025</option>
+                </select>
+              </div>
+      
+              <div id="selectTurno" style="display: none;">
+                <label for="select-extra" style="margin-top: 10px;">Turno:</label>
+                <select id="select-extra" class="form-select">
+                  <option value="opcaoA">Ambos</option>
+                  <option value="opcaoB">Manhã</option>
+                  <option value="opcaoC">Tarde</option>
+                </select>
+              </div>
+      
+              <br>
+      
+              <ul class="list-group list-group-flush">
+                <% processosComEtapas[i].participantes.forEach(participante => { %>
+                  <% if (participante.IDProcesso === processosComEtapas[i].IDProcesso && participante.Status >= 1) { %>
+                    <li class="list-group-item list-group-item-action">
+                      <a href="/participante/<%= participante.IDParticipante %>">
+                        <%= participante.Nome %>
+                      </a>
+                    </li>
+                  <% } %>
+                <% }) %>
+              </ul>
+            </div>
           </div>
-        </div>
+      
+          <hr>
+      <% } %>
+      
+
+        
       </div>
 
     </div>
@@ -212,44 +183,41 @@
 
         <!-- Corpo do Modal -->
         <div class="modal-body">
-          <form action="/cadastroProcesso" method="post"
-            enctype="multipart/form-data">
-            <div class="mb-3">
-              <label for="nome" class="form-label">Nome</label>
-              <input type="text" class="form-control" name="nome"
-                required>
-            </div>
-            <div class="mb-3">
-              <label for="data" class="form-label">Data</label>
-              <input type="date" class="form-control" name="data"
-                required>
-            </div>
-            <div class="mb-3">
-              <label for="etapas" class="form-label">Etapas</label>
-              <input type="number" class="form-control" name="etapa"
-                id="etapaInput"
-                required>
-            </div>
+            <form action="/novoProcesso" method="post"
+              enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" name="nome"
+                  required>
+              </div>
+              <div class="mb-3">
+                <label for="data" class="form-label">Data</label>
+                <input type="date" class="form-control" name="data"
+                  required>
+              </div>
+              <div class="mb-3">
+                <label for="etapas" class="form-label">Etapas</label>
+                <input type="number" class="form-control" name="etapa"
+                  id="etapaInput"
+                  required>
+              </div>
 
-            <div class="mb-3">
-              <div id="inputsContainer"></div>
+              <div class="mb-3">
+                <div id="inputsContainer"></div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="arquivo">Planilha Excel</label>
+                <input class="form-control" type="file" name="arquivo">
+              </div>
+
+              <div class="d -flex flex-row align-items-center">
+              <button type="submit" class="btn btn-primary">Criar</button>
+              <div class="spinner-grow text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
             </div>
-
-            <div class="mb-3">
-              <label class="form-label" for="arquivo">Planilha Excel</label>
-              <input class="form-control" type="file">
-            </div>
-
-            <!-- <div
-                    class="drop-area"
-                    ondrop="dropHandler(event);"
-                    ondragover="dragOverHandler(event);">
-                    <p>Planilha Excel</p>
-                  </div>
-
-                  <br> -->
-
-            <button type="submit" class="btn btn-primary">Criar</button>
+            </form>
           </div>
 
           <script src="js/mobiscroll.javascript.min.js"></script>
@@ -263,39 +231,40 @@
 
           <script type="text/javascript">              
             $("#etapaInput").on("input", function() {
-              var numEtapas = parseInt($(this).val());
+            var numEtapas = parseInt($(this).val());
 
-              // Remove todos os campos de entrada anteriores
-              $("#inputsContainer").empty();
+            // Remove todos os campos de entrada anteriores
+            $("#inputsContainer").empty();
 
-              // Adiciona os campos de entrada com base no número de etapas
-              for (let i = 1; i <= numEtapas; i++) {
-                var input = $(`<input type="text" class="form-control" style="margin-top: 10px;, margin-bottom: 10px;" placeholder="Nome etapa ${i}">`);
-                $("#inputsContainer").append(input);
-              }
+            // Adiciona os campos de entrada com base no número de etapas
+            for (let i = 1; i <= numEtapas; i++) {
+              var input = $(`<input type="text" class="form-control" style="margin-top: 10px;, margin-bottom: 10px;" placeholder="Nome etapa ${i}" name="etapa${i}" required>`);
+              $("#inputsContainer").append(input);
+            }
 
-              // Atualiza o número de etapas nos botões
-              $("#incrementa").attr("max", numEtapas);
-              $("#decrementa").attr("max", numEtapas);
-            });
+            // Atualiza o número de etapas nos botões
+            $("#incrementa").attr("max", numEtapas);
+            $("#decrementa").attr("max", numEtapas);
 
-            $("#incrementa").click(function() {
-              var numEtapas = parseInt($("#etapaInput").val());
-              if (numEtapas < parseInt($(this).attr("max"))) {
-                numEtapas++;
-                $("#etapaInput").val(numEtapas);
-                $("#etapaInput").trigger("input");
-              }
-            });
-
-            $("#decrementa").click(function() {
-              var numEtapas = parseInt($("#etapaInput").val());
-              if (numEtapas > parseInt($(this).attr("min"))) {
-                numEtapas--;
-                $("#etapaInput").val(numEtapas);
-                $("#etapaInput").trigger("input");
+            // Envia os valores das etapas para o back-end
+            $.ajax({
+              url: "/importarDados",
+              method: "POST",
+              data: {
+                etapa: numEtapas
+              },
+              success: function(response) {
+                // Manipula a resposta do back-end, se necessário
+                console.log(response);
+              },
+              error: function(error) {
+                // Manipula o erro, se necessário
+                console.log(error);
               }
             });
+          });
+
+
           </script>
           <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
           <script>
