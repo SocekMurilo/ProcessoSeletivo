@@ -2,6 +2,7 @@ const Processos = require('../model/processos');
 const Etapas = require('../model/etapas');
 const Participante = require('../model/participante');
 const ParticipanteProcesso = require('../model/participanteProcesso');
+const Grupos = require('../model/grupos')
 
 
 const { Op } = require('sequelize');
@@ -166,6 +167,16 @@ module.exports = {
       },
 
     async gruposGet(req, res){
-        res.render('../views/grupos');
-    }
+      try {
+        const participantes = await Participante.findAll({
+          raw: true,
+          attributes: ['IDParticipante', 'Nome'],
+      });
+
+      res.render('../views/Grupos', { participantes });
+      } catch (error) {
+          console.error('Erro ao obter os dados do participante:', error);
+          res.render('error', { message: 'Erro ao obter os dados do participante' });
+      }
+  }
 }

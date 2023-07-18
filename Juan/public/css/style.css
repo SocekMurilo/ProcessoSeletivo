@@ -194,3 +194,8 @@ button.accordion-button::after {
     max-height: 300px;
     overflow-y: auto;
 }
+
+.grupo{
+    max-height: 643px;
+    overflow-y: auto;
+}
