@@ -47,15 +47,12 @@ const editarProcesso = async (req, res) => {
         });
       }
     }
-    
-    
-    
 
     // Redirecione o usuário para a página de exibição do processo atualizado
     res.redirect(`/${processo.IDProcesso}`);
   } catch (error) {
-    console.error('Erro ao atualizar processo:', error);
-    res.render('error', { message: 'Erro ao atualizar processo' });
+    console.error('Erro ao editar processo:', error);
+    res.render('error', { message: 'Erro ao editar processo' });
   }
 };
 

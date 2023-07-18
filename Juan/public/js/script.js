@@ -128,17 +128,78 @@ document.getElementById("limparFiltros").addEventListener("click", function() {
 });
 
 $(document).ready(function() {
+  // Definir as variáveis de índice da etapa e ID da etapa
+  let indiceEtapa = null;
+  let idEtapa = null;
+
+  // Capturar o evento de clique no botão da etapa
+  $('.nav-link').click(function() {
+    // Obter o índice da etapa a partir do atributo data-index
+    indiceEtapa = $(this).data('index');
+    idEtapa = $(this).data('id');
+    
+    // Imprimir o índice da etapa selecionada no console
+    console.log('Índice da etapa selecionada:', indiceEtapa);
+    console.log('ID da etapa selecionada:', idEtapa);
+
+    // Chamar a função para renderizar o arquivo EJS com os valores atualizados
+    renderizarArquivoEJS();
+  });
+
+  // Função para renderizar o arquivo EJS com os valores atualizados
+  function renderizarArquivoEJS() {
+    // Fazer uma requisição AJAX para o servidor para renderizar o arquivo EJS
+    $.ajax({
+      url: '/ajax',
+      method: 'POST',
+      data: { indiceEtapa: indiceEtapa, idEtapa: idEtapa },
+      success: function(response) {
+        // Atualizar o conteúdo HTML com o resultado do arquivo EJS renderizado
+        $('.accordion').html(response);
+      },
+      error: function(error) {
+        console.error('Erro ao renderizar o arquivo EJS:', error);
+      }
+    });
+  }
+});
+
+$(document).ready(function() {
   // Capturar o evento de clique no botão da etapa
   $('.nav-link').click(function() {
     // Obter o índice da etapa a partir do atributo data-index
     const indiceEtapa = $(this).data('index');
     const idEtapa = $(this).data('id');
     
-    // Imprimir o índice da etapa selecionada no console
-    console.log('Índice da etapa selecionada:', indiceEtapa);
-    console.log('ID da etapa selecionada:', idEtapa);
+    // Atualizar o valor do índice da etapa atual na página
+    $('#indiceEtapaAtual').val(indiceEtapa);
+    $('#idEtapaAtual').val(idEtapa);
+    
+    // Exibir ou ocultar os participantes com base no índice da etapa atual
+    exibirParticipantes();
   });
+  
+  // Função para exibir ou ocultar os participantes com base no índice da etapa atual
+  function exibirParticipantes() {
+    const indiceEtapaAtual = parseInt($('#indiceEtapaAtual').val());
+    
+    $('.accordion-item.participante-item').each(function() {
+      const status = parseInt($(this).data('status'));
+      
+      if (status >= (indiceEtapaAtual + 1)) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
+    });
+  }
+  
+  // Chamar a função para exibir os participantes quando a página for carregada
+  exibirParticipantes();
 });
+
+
+
 
 let lastClickTime = 0;
 
