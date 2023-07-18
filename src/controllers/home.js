@@ -8,21 +8,26 @@ let ultimoIDProcessoAcessado = null;
 
 module.exports = {
     async pagInicialGet(req, res){
-        try {
-          if (ultimoIDProcessoAcessado) {
+        // try {
+          if (ultimoIDProcessoAcessado == null){
+            res.redirect('/');
+            return
+          }
+          else if (ultimoIDProcessoAcessado) {
             // Se o último ID de processo acessado existir, redireciona para ele
             res.redirect(`/${ultimoIDProcessoAcessado}`);
-          } else {
+          }
+          else{
             // Caso contrário, obtenha o IDProcesso mais alto
             const highestIDProcesso = await Processos.max('IDProcesso');
             ultimoIDProcessoAcessado = highestIDProcesso;
       
             // Redireciona para o último ID de processo acessado
-            res.redirect(`/${ultimoIDProcessoAcessado}`);
+            res.redirect('/');
           }
-        } catch (error) {
-          console.error('Erro ao obter o IDProcesso mais alto:', error);
-          res.render('error', { message: 'Erro ao obter o IDProcesso mais alto' });
-        }
-      },
+        // } catch (error) {
+        //   console.error('Erro ao obter o IDProcesso mais alto:', error);
+        //   res.render('error', { message: 'Erro ao obter o IDProcesso mais alto' });
+        // }
+      }
 }
