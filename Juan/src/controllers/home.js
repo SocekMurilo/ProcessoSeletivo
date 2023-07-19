@@ -200,7 +200,7 @@ module.exports = {
         raw: true,
         attributes: ['IDNota', 'Nota']
       });
-
+      
       res.render('../views/Grupos', { participantes, nota});
       } catch (error) {
           console.error('Erro ao obter os dados do participante:', error);

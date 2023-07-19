@@ -117,5 +117,5 @@ module.exports = async function importarDados(req, res) {
     }
   }
 
-  res.render('index', { processo: novoProcesso.IDProcesso });
+  res.render('index', { processo: novoProcesso.IDProcesso, etapas: [] });
 };
