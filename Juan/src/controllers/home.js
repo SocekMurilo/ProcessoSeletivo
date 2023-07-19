@@ -2,12 +2,15 @@ const Processos = require('../model/processos');
 const Etapas = require('../model/etapas');
 const Participante = require('../model/participante');
 const ParticipanteProcesso = require('../model/participanteProcesso');
-const Grupos = require('../model/grupos')
+const Grupos = require('../model/grupos');
+const Notas = require('../model/notas')
 
 
 const { Op } = require('sequelize');
 
 let ultimoIDProcessoAcessado = null;
+let indiceEtapaAtual = 0;;
+let idEtapaAtual;
 
 module.exports = {
     async pagInicialGet(req, res){
@@ -27,6 +30,13 @@ module.exports = {
         console.error('Erro ao obter o IDProcesso mais alto:', error);
         res.render('error', { message: 'Erro ao obter o IDProcesso mais alto' });
       }
+    },
+
+    async indiceIDEtapa(req, res) {
+      const { indiceEtapa, idEtapa } = req.body;
+
+      indiceEtapaAtual = indiceEtapa;
+      idEtapaAtual = idEtapa;
     },
 
     async processosGet(req, res) {
@@ -76,7 +86,17 @@ module.exports = {
     },
 
     async processoGet(req, res) {
+      const indiceEtapaAtual = 0;
+
       const processoID = req.params.IDProcesso;
+
+      const primeiraEtapa  = await Etapas.findOne({
+        where: { IDProcesso: processoID },
+        order: [['IDEtapa', 'ASC']],
+        attributes: ['IDEtapa']
+      });
+
+      const idEtapaAtual = primeiraEtapa ? primeiraEtapa.IDEtapa : null;
 
       ultimoIDProcessoAcessado = processoID;
     
@@ -124,7 +144,10 @@ module.exports = {
           Nome: participantes.find((p) => p.IDParticipante === participante.IDParticipante)?.Nome,
         }));
     
-        res.render('../views/index', { processo, participantes: participantesDoProcesso, etapas});
+        console.log('Índice da etapa atual:', indiceEtapaAtual);
+        console.log('ID da etapa atual:', idEtapaAtual);
+
+        res.render('../views/index', { processo, participantes: participantesDoProcesso, etapas, indiceEtapaAtual, idEtapaAtual});
       } catch (error) {
         console.error('Erro ao obter os dados do processo:', error);
         res.render('error', { message: 'Erro ao obter os dados do processo' });
@@ -170,10 +193,15 @@ module.exports = {
       try {
         const participantes = await Participante.findAll({
           raw: true,
-          attributes: ['IDParticipante', 'Nome'],
+          attributes: ['IDParticipante', 'Nome']
       });
 
-      res.render('../views/Grupos', { participantes });
+      const nota = await Notas.findAll({
+        raw: true,
+        attributes: ['IDNota', 'Nota']
+      });
+
+      res.render('../views/Grupos', { participantes, nota});
       } catch (error) {
           console.error('Erro ao obter os dados do participante:', error);
           res.render('error', { message: 'Erro ao obter os dados do participante' });

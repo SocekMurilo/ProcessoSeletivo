@@ -73,9 +73,9 @@
             <div class="col">
                 <select name="dia" id="dia" class="form-select">
                     <option value="">Todos</option>
-                    <option value="dia1">Dia 1</option>
-                    <option value="dia2">Dia 2</option>
-                    <option value="dia3">Dia 3</option>
+                    <option value="">Dia 1</option>
+                    <option value="">Dia 2</option>
+                    <option value="">Dia 3</option>
                 </select>
 
                 <br />
@@ -84,7 +84,7 @@
                     <div class="col">
                         <div class="card medias">
                             <h5 class="card-header d-flex justify-content-between">Grupo 1
-                                <div class="margin notagrupo" id="Media1">0</div>
+                                <div class="margin notagrupo" id="Media1"></div>
                             </h5>
                             <div class="card-body grupo dia1"></div>
                         </div>
@@ -92,7 +92,7 @@
                     <div class="col">
                         <div class="card medias">
                             <h5 class="card-header d-flex justify-content-between">Grupo 2
-                                <div class="margin notagrupo" id="Media2"><% participantes.IDParticipante %></div>
+                                <div class="margin notagrupo" id="Media2"></div>
                             </h5>
                             <div class="card-body grupo dia1"></div>
                         </div>
@@ -100,7 +100,7 @@
                     <div class="col">
                         <div class="card medias">
                             <h5 class="card-header d-flex justify-content-between">Grupo 3
-                                <div class="margin notagrupo" id="Media3">0</div>
+                                <div class="margin notagrupo" id="Media3"></div>
                             </h5>
                             <div class="card-body grupo dia1"></div>
                         </div>
@@ -108,7 +108,7 @@
                     <div class="col">
                         <div class="card medias">    
                         <h5 class="card-header d-flex justify-content-between">Grupo 4
-                            <div class="margin notagrupo" id="Media4">0</div>
+                            <div class="margin notagrupo" id="Media4"></div>
                         </h5>
                         <div class="card-body grupo dia1"></div>
                         </div>
@@ -119,67 +119,29 @@
             <div class="col">
                 <div class="card cardParticipantes">
                     <h5 class="card-header">Participantes</h5>
-                    <div class="card-body grupo">
+                    <div class="card-body grupo" id="participantes-list">
                         <% for (let i=0; i < participantes.length; i++) { %>
-                        <div class="alert alert-grupo alert-light d-flex justify-content-between" role="alert"
-                            draggable="true">
-                                <%= participantes[i].Nome %>            
-                                <div class="ms-auto d-flex align-items-center">
-                                    <div class="margin nota"><%= participantes[i].IDParticipante %></div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    fill="currentColor" class="bi bi-grip-vertical" viewBox="0 0 16 16">
+                        <div class="alert alert-grupo alert-light d-flex justify-content-between participante" role="alert"
+                            draggable="true" id="participante-<%= i %>">
+                            <%= participantes[i].Nome %>
+                            <div class="ms-auto d-flex align-items-center">
+                                <div class="margin nota"><%= nota[i].Nota %></div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-grip-vertical" viewBox="0 0 16 16">
                                     <path
-                                    d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                        d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                                 </svg>
                             </div>
                         </div>
                         <% } %>
                     </div>
                 </div>
-
-                <!-- <hr> -->
-
-                <!-- <div class="row row-cols-1 row-cols-md-2 g-4">
-                    <div class="col">
-                        <div class="card">
-                            <h5 class="card-header">Grupo 1</h5>
-                            <div class="card-body grupo">
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card">
-                            <h5 class="card-header">Grupo 2</h5>
-                            <div class="card-body grupo">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <h5 class="card-header">Grupo 3</h5>
-                            <div class="card-body grupo">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <h5 class="card-header">Grupo 4</h5>
-                            <div class="card-body grupo">
-
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
 
         <br/>
 
-        <button class="btn btn-primary">Salvar alterações</button>
+        <button type="submit" href="/salvar" class="btn btn-primary">Salvar alterações</button>
     </div>
 
     <script src="js/script.js"></script>
@@ -214,6 +176,7 @@
         });
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
     <script src="/js/grupos.js"></script>
     <script>
         AOS.init();

@@ -7,6 +7,7 @@ document.addEventListener("dragstart", (e) => {
 
 document.addEventListener("dragend", (e) => {
   e.target.classList.remove("dragging");
+  calcularMediaNotas(grupos); 
 });
 
 grupos.forEach((item) => {
