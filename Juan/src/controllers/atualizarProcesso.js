@@ -11,28 +11,37 @@ const atualizarProcesso = async (req, res) => {
     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
     const dados = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
-    for (let i = 1; i < dados.length; i++) {
-        const participanteDados = dados[i];
-        const nomeParticipante = participanteDados.Nome;
-        const novoStatus = participanteDados.Status;
-      
-        // Encontre o participante pelo nome
-        const participante = await Participante.findOne({ where: { Nome: nomeParticipante } });
-      
+    const IDProcesso = req.params.IDProcesso; // Obtendo o ID do processo a partir dos parâmetros da rota
+
+    // Percorra os dados da planilha e atualize o status dos participantes
+    for (const linha of dados.slice(1)) {
+      const [Nome, status] = linha;
+
+      // Verifique se o nome do participante está definido
+      if (Nome) {
+        // Encontre o participante pelo nome e IDProcesso
+        const participante = await Participante.findOne({ 
+          where: { 
+            Nome: Nome
+          } 
+        });
+
         // Verifique se o participante foi encontrado
         if (participante) {
-          // Atualize o status do participante na etapa desejada
+          // Atualize o status do participante no processo desejado
           await ParticipanteProcesso.update(
-            { Status: novoStatus },
-            { where: { IDParticipante: participante.IDParticipante, IDEtapa: idEtapa } }
+            { Status: status },
+            { where: { IDParticipante: participante.IDParticipante, IDProcesso: IDProcesso } }
           );
         }
       }
+    }
 
-    res.status(200).json({ mensagem: 'Status dos participantes atualizado com sucesso' });
+    // Redirecione para a página do processo após a atualização
+    res.redirect(`/${IDProcesso}`);
   } catch (error) {
     console.error('Erro ao atualizar o status dos participantes:', error);
-    res.status(500).json({ mensagem: 'Erro ao atualizar o status dos participantes' });
+    res.render('error', { message: 'Erro ao atualizar o status dos participantes' });
   }
 };
 

@@ -11,6 +11,7 @@ const home = require('./src/controllers/home');
 // Iniciando as rotas
 router.get('/', home.pagInicialGet);
 
+router.get('/favicon.ico', (req, res) => res.status(204));
 router.get('/processos', home.processosGet);
 router.get('/participantes', home.participantesGet);
 router.get('/participante/:IDParticipante', home.participanteGet);
