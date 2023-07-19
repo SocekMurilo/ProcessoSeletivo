@@ -10,6 +10,10 @@ const moment = require('moment');
 const { Op } = require('sequelize');
 
 module.exports = async function importarDados(req, res) {
+
+  if (!req.session.EDV)
+    return res.redirect('/Login')
+
   const arquivo = req.files.arquivo;
   const workbook = XLSX.read(arquivo.data, { type: 'buffer' });
   const worksheet = workbook.Sheets[workbook.SheetNames[0]];

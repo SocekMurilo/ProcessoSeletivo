@@ -5,6 +5,8 @@ const Etapa = require('../model/etapas');
 // Processa a edição do processo
 const editarProcesso = async (req, res) => {
   try {
+    if (!req.session.EDV)
+      return res.redirect('/Login')
     const processo = await Processo.findByPk(req.params.IDProcesso);
 
     // Atualize os campos do processo com os dados enviados pelo formulário
@@ -21,12 +23,12 @@ const editarProcesso = async (req, res) => {
     for (let i = 0; i < req.body.etapa; i++) {
       const etapa = etapas[i];
       if (etapa) {
-        const nomeEtapa = req.body[`etapa${i+1}`];
+        const nomeEtapa = req.body[`etapa${i + 1}`];
         etapa.Nome = nomeEtapa;
         await etapa.save();
       }
     }
-    
+
     // Remova as etapas excedentes do banco de dados
     for (let i = req.body.etapa; i < etapas.length; i++) {
       const etapa = etapas[i];
@@ -34,7 +36,7 @@ const editarProcesso = async (req, res) => {
         await etapa.destroy();
       }
     }
-    
+
     // Adicione novas etapas se o número fornecido for maior do que o número de etapas existentes
     if (req.body.etapa > etapas.length) {
       for (let i = etapas.length + 1; i <= req.body.etapa; i++) {
