@@ -7,6 +7,7 @@ module.exports = {
     try {
       if (!req.session.EDV)
         return res.redirect('/Login')
+
       if (ultimoIDProcessoAcessado) {
         // Se o último ID de processo acessado existir, redireciona para ele
         res.redirect(`/${ultimoIDProcessoAcessado}`);
@@ -15,9 +16,13 @@ module.exports = {
         const highestIDProcesso = await Processos.max('IDProcesso');
         ultimoIDProcessoAcessado = highestIDProcesso;
 
-        // Redireciona para o último ID de processo acessado
-        res.redirect(`/${ultimoIDProcessoAcessado}`);
+        if (highestIDProcesso == null){
+          res.redirect('/Processos')
+        } else {
+          res.redirect(`/${ultimoIDProcessoAcessado}`);
+        }
       }
+      
     } catch (error) {
       console.error('Erro ao obter o IDProcesso mais alto:', error);
       res.render('error', { message: 'Erro ao obter o IDProcesso mais alto' });

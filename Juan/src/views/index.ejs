@@ -306,6 +306,7 @@
             </div>
             <div class="mb-3">
               <label for="data" class="form-label">Data</label>
+              <% console.log(processo) %>
               <input type="date" class="form-control" name="data"
                 value="<%= processo.Data.toISOString().split('T')[0] %>" required>
             </div>

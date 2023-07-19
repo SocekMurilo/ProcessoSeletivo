@@ -8,6 +8,7 @@ const Nota = require('../model/notas');
 const XLSX = require('xlsx');
 const moment = require('moment');
 const { Op } = require('sequelize');
+const processo = require('./processo');
 
 module.exports = async function importarDados(req, res) {
 
@@ -120,6 +121,6 @@ module.exports = async function importarDados(req, res) {
       }
     }
   }
-
-  res.render('index', { processo: novoProcesso.IDProcesso, etapas: [] });
+  const processo = await Processo.findOne({raw: true})
+  res.redirect(`/${novoProcesso.IDProcesso}`)
 };
