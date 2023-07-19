@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Processos Bosch</title>
+  <!-- Icone -->
+  <link rel="icon" type="image/x-icon" href="https://static-00.iconduck.com/assets.00/bosch-icon-512x512-er2htt2a.png">
+  <!-- Bootstrap e CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Fontes -->
+  <link href="//db.onlinewebfonts.com/c/6e96217a04da19fc61e0c2724049e53e?family=Neology-Bold" rel="stylesheet"
+    type="text/css" />
+</head>
+
+<body>
+  <div class="hr" data-aos="fade-down"></div>
+  <nav class="navbar bg-body-tertiary" data-aos="fade-down">
+    <div class="container-fluid containerNav">
+      <a class="navbar-brand" href="/">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Bosch-logo.svg/2560px-Bosch-logo.svg.png"
+          alt="Logo" width="150" height="33" class="d-inline-block
+            align-text-top">
+      </a>
+      <div class="d-flex justify-content-end">
+        <a href class="margin link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+            viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397
+                1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0
+                1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5
+                0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+          </svg>
+        </a>
+        <div class="dropdown" style="z-index: 100;">
+          <a href class="margin dropdown-toggle link" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-person-circle" viewBox="0 0
+                  16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0
+                      8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8
+                      10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+            </svg>
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Perfil</a></li>
+            <li><a class="dropdown-item" href="#">Editar</a></li>
+            <li><a class="dropdown-item" href="#">Sair</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <br>
+
+  <div style="margin-left: 60px; margin-right: 60px;">
+    <div class="container-fluid" id="container">
+      <div class="row">
+        <div class="col-lg-8" style="margin-bottom: 10px;">
+          <div class="card cardHeight" data-aos="fade-up">
+            <div class="card-header">
+              <div class="d-flex justify-content-between
+                        align-items-center">
+                <h5 class="font"><a data-bs-toggle="modal" data-bs-target="#myModal" class="link" href="">
+                    <%= processo.Nome %>
+                  </a></h5>
+                <div class="d-flex flex-row">
+                  <div class="margin link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi
+                            bi-filter-left" viewBox="0 0 16 16">
+                      <path d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0
+                              1h-3a.5.5
+                              0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0
+                              1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1
+                              .5-.5h11a.5.5 0 0
+                              1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                    <a data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false"
+                      aria-controls="collapseWidthExample" id="selecionar">Selecionar</a>
+                  </div>
+                  <div class="margin link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi
+                              bi-funnel" viewBox="0 0 16 16">
+                      <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1
+                                .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5
+                                0 0
+                                1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628
+                                3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372
+                                4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0
+                                0 1
+                                .128-.334L13.5 3.308V2h-11z" />
+                    </svg>
+                    <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                      aria-controls="collapseExample">Filtrar</a>
+                  </div>
+                </div>
+              </div>
+              <div class="collapse" id="collapseExample">
+                <hr style="margin-top: 0; margin-bottom: 8px;">
+
+
+                <div class="d-flex flex-row">
+
+                  <div class="d-flex flex-row">
+                    <div style="margin-right: 10px;">
+                      Nome:
+                      <br>
+                      <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group"
+                        id="radioGroup1">
+                        <input type="radio" class="btn-check" name="vbtn-radioNome" id="vbtn-radioNome1"
+                          autocomplete="off">
+                        <label class="btn btn-outline-warning btnFitro" for="vbtn-radioNome1">A-Z</label>
+                        <input type="radio" class="btn-check" name="vbtn-radioNome" id="vbtn-radioNome2"
+                          autocomplete="off">
+                        <label class="btn btn-outline-warning" for="vbtn-radioNome2">Z-A</label>
+                      </div>
+                    </div>
+                    <div style="margin-right: 10px;">
+                      Idade:
+                      <br>
+                      <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group"
+                        id="radioGroup2">
+                        <input type="radio" class="btn-check" name="vbtn-radioIdade" id="vbtn-radioIdade1"
+                          autocomplete="off">
+                        <label class="btn btn-outline-warning btnFitro" for="vbtn-radioIdade1">0-9</label>
+                        <input type="radio" class="btn-check" name="vbtn-radioIdade" id="vbtn-radioIdade2"
+                          autocomplete="off">
+                        <label class="btn btn-outline-warning" for="vbtn-radioIdade2">9-0</label>
+                      </div>
+                    </div>
+                    <div style="margin-right: 10px;">
+                      Nota:
+                      <br>
+                      <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group"
+                        id="radioGroup3">
+                        <input type="radio" class="btn-check" name="vbtn-radioNota" id="vbtn-radioNota1"
+                          autocomplete="off">
+                        <label class="btn btn-outline-warning btnFitro" for="vbtn-radioNota1">0-100</label>
+                        <input type="radio" class="btn-check" name="vbtn-radioNota" id="vbtn-radioNota2"
+                          autocomplete="off">
+                        <label class="btn btn-outline-warning" for="vbtn-radioNota2">100-0</label>
+                      </div>
+                    </div>
+                    <div style="margin-right: 10px;">
+                      Participou:
+                      <br>
+                      <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group"
+                        id="radioGroup4">
+                        <input type="radio" class="btn-check" name="vbtn-radioParticipou" id="vbtn-radioParticipou1"
+                          autocomplete="off">
+                        <label class="btn btn-outline-warning btnFitro" for="vbtn-radioParticipou1">Sim</label>
+                        <input type="radio" class="btn-check" name="vbtn-radioParticipou" id="vbtn-radioParticipou2"
+                          autocomplete="off">
+                        <label class="btn btn-outline-warning" for="vbtn-radioParticipou2">Não</label>
+                      </div>
+                    </div>
+                    <div style="margin-right: 10px;">
+                      Disponivel:
+                      <br>
+                      <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group"
+                        id="radioGroup5">
+                        <input type="radio" class="btn-check" name="vbtn-radioDisponivel" id="vbtn-radioDisponivel1"
+                          autocomplete="off">
+                        <label class="btn btn-outline-warning btnFitro" for="vbtn-radioDisponivel1">Sim</label>
+                        <input type="radio" class="btn-check" name="vbtn-radioDisponivel" id="vbtn-radioDisponivel2"
+                          autocomplete="off">
+                        <label class="btn btn-outline-warning" for="vbtn-radioDisponivel2">Não</label>
+                      </div>
+                    </div>
+                    <div style="margin-right: 10px;">
+                      Block:
+                      <br>
+                      <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group"
+                        id="radioGroup6">
+                        <input type="radio" class="btn-check" name="vbtn-radioBlock" id="vbtn-radioBlock1"
+                          autocomplete="off">
+                        <label class="btn btn-outline-warning" for="vbtn-radioBlock1">Bloqueado</label>
+                        <input type="radio" class="btn-check" name="vbtn-radioBlock" id="vbtn-radioBlock2"
+                          autocomplete="off">
+                        <label class="btn btn-outline-warning" for="vbtn-radioBlock2">Não-bloqueado</label>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="ms-auto">
+                    Filtros:
+                    <br>
+                    <button class="btn btn-primary" style="max-height: 50px; margin-bottom: 2px;"
+                      id="aplicarFiltro">Aplicar filtros</button>
+                    <br>
+                    <button class="btn btn-danger" style="max-height: 48px;" id="limparFiltros">Limpar filtros</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="card-body p-0">
+
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <% for (let i=0; i < etapas.length; i++) { %>
+                  <% const etapa=etapas[i]; %>
+                    <li class="nav-item" role="presentation">
+                      <button onclick="tabClick(event)" class="nav-link <%= i === 0 ? 'active btn-desativar' : 'btn-ativar' %>" id="<%= i %>-tab"
+                        data-bs-toggle="tab" data-bs-target="#modal-1" type="button" role="tab"
+                        aria-controls="<%= i %>-tab-pane" aria-selected="<%= i === 0 %>" data-index="<%= i %>" data-id="<%= etapa.IDEtapa %>">
+                        <%= etapa.Nome %>
+                      </button>
+                    </li>
+                    <% } %>
+              </ul>
+              
+              <input type="hidden" id="indiceEtapaAtual" value="<%= indiceEtapaAtual %>" />
+              <input type="hidden" id="idEtapaAtual" value="<%= idEtapaAtual %>" name="idetapa" />
+
+              <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="tab-pane" role="tabpanel"
+                      aria-labelledby="home-tab" tabindex="0">
+                    <!-- <div class="rolagem"> -->
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                      <% participantes.forEach(participante=> { 
+                        if (participante.Status >= (indiceEtapaAtual + 1)) { %>
+                          <div class="accordion-item participante-item exibir-participante" data-nome="<%= participante.Nome %>" data-status="<%= participante.Status %>" <% if (participante.Status >= (indiceEtapaAtual + 1)) { %> style="display: block;" <% } else { %> style="display: none;" <% } %>>
+                          <h2 class="accordion-header">
+                            <div class="d-flex flex-row align-items-center">
+                              <div class="collapse collapse-horizontal" id="collapseWidthExample">
+                                <input class="form-check-input margin" type="checkbox" id="checkboxNoLabel" value
+                                  aria-label="..." style="height: 20px; width: 20px;">
+                              </div>
+                              <button class="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse<%= participante.IDParticipante %>" aria-expanded="false"
+                                aria-controls="flush-collapse<%= participante.IDParticipante %>">
+                                <%= participante.Nome %>
+                                  <div style="margin-left: auto;">
+                                    Nota
+                                  </div>
+                              </button>
+                            </div>
+                          </h2>
+                          <div id="flush-collapse<%= participante.IDParticipante %>" class="accordion-collapse
+                                    collapse">
+                            <div class="accordion-body">Placeholder
+                              content
+                              for
+                              this accordion, which is intended to
+                              demonstrate
+                              the <code>.accordion-flush</code> class.
+                              This is
+                              the first item's accordion body.</div>
+                          </div>
+                        </div>
+                        <% }
+                      }); %>
+                    </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="collapse" id="collapseWidthExample" style="margin-top: 10px;">
+          <div class="d-flex flex-row">
+            <button class="btn btn-primary" id="select-all-btn">Todos</button>
+            <button class="btn btn-danger margin">Bloquear</button>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-4">
+        <div class="d-flex flex-column" data-aos="fade-left">
+          <a href="processos"><button class="btn btn-light mb-2 btnG">Processos</button></a>
+          <a href="participantes"><button class="btn btn-light mb-2 btnG">Participantes</button></a>
+          <a href="grupos" class="btn btn-light btnG disabled d-flex justify-content-center align-items-center"
+            id="botaoGrupos">Grupos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Cabeçalho do Modal -->
+        <div class="modal-header">
+          <h4 class="modal-title">Editar Processo</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!-- Corpo do Modal -->
+        <div class="modal-body">
+          <form action="/editarProcesso/<%= processo.IDProcesso %>" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome</label>
+              <input type="text" class="form-control" name="nome" value="<%= processo.Nome %>" required>
+            </div>
+            <div class="mb-3">
+              <label for="data" class="form-label">Data</label>
+              <% console.log(processo) %>
+              <input type="date" class="form-control" name="data"
+                value="<%= processo.Data.toISOString().split('T')[0] %>" required>
+            </div>
+            <div class=" mb-3">
+              <label for="etapas" class="form-label">Etapas</label>
+              <input type="number" class="form-control" name="etapa" value="<%= processo.NumEtapas %>" id="etapaInput"
+                required>
+            </div>
+
+            <div class="mb-3">
+              <div id="inputsContainer"></div>
+            </div>
+
+            <button type="submit" class="btn btn-info" style="color: white;">Editar</button>
+          </form>
+        </div>
+        </div>
+        </div>
+        </div>
+
+    <div class="modal fade" id="modal-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+        <!-- Cabeçalho do Modal -->
+        <div class="modal-header">
+          <h4 class="modal-title">Atualizar planilhas</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!-- Corpo do Modal -->
+        <div class="modal-body">
+          <form action="/atualizarProcesso/<%= processo.IDProcesso %>" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label" for="arquivo">Planilha Excel</label>
+                <input class="form-control" type="file" name="arquivo" required>
+              </div>
+
+            <button type="submit" class="btn btn-success" style="color: white;">Atualizar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+        
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+        <script src="js/script.js"></script>
+        <script src="js/filtroNome.js"></script>
+        <script src="js/filtroParticipou.js"></script>
+        <script type="text/javascript">
+          $(document).ready(function () {
+            // Função para atualizar os campos de entrada com base no valor do #etapaInput
+            function atualizarCamposDeEntrada() {
+              var numEtapas = parseInt($("#etapaInput").val());
+
+
+              // Remove todos os campos de entrada anteriores
+              $("#inputsContainer").empty();
+
+              // Adiciona os campos de entrada com base no número de etapas
+              for (let i = 1; i <= numEtapas; i++) {
+                var input = $(`<input type="text" class="form-control" style="margin-top: 10px;, margin-bottom: 10px;" placeholder="Nome etapa ${i}" name="etapa${i}" required>`);
+                $("#inputsContainer").append(input);
+              }
+
+              // Atualiza o número de etapas nos botões
+              $("#incrementa").attr("max", numEtapas);
+              $("#decrementa").attr("max", numEtapas);
+            }
+
+            // Atualiza os campos de entrada quando a página é carregada
+            atualizarCamposDeEntrada();
+
+            // Atualiza os campos de entrada quando o valor do #etapaInput é alterado
+            $("#etapaInput").on("input", function () {
+              atualizarCamposDeEntrada();
+            });
+
+            // Envia os valores das etapas para o back-end
+            $.ajax({
+              url: "/editarDados",
+              method: "POST",
+              data: {
+                etapa: numEtapas
+              },
+              success: function (response) {
+                // Manipula a resposta do back-end, se necessário
+                console.log(response);
+              },
+              error: function (error) {
+                // Manipula o erro, se necessário
+                console.log(error);
+              }
+            });
+          });
+        </script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+          AOS.init();
+        </script>
+
+
+
+</body>
+
+</html>
