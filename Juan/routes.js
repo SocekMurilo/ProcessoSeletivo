@@ -5,6 +5,8 @@ const router = express.Router();
 const novoProcesso = require('./src/controllers/novoProcesso');
 const editarProcesso = require('./src/controllers/editarProcesso');
 const atualizarProcesso = require('./src/controllers/atualizarProcesso');
+const atualizarStatus = require('./src/controllers/atualizarStatusParticipante');
+
 
 const home = require('./src/controllers/home');
 
@@ -22,5 +24,6 @@ router.post('/ajax', home.indiceIDEtapa);
 router.post('/novoProcesso', novoProcesso);
 router.post('/editarProcesso/:IDProcesso', editarProcesso);
 router.post('/atualizarProcesso/:IDProcesso', atualizarProcesso);
+router.post('/atualizarStatusParticipante', atualizarStatus.atualizarStatusParticipante);
 
 module.exports = router;

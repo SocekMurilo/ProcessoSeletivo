@@ -198,8 +198,19 @@ $(document).ready(function() {
   exibirParticipantes();
 });
 
-
-
+function exibirParticipantes(select) {
+  const indiceSelecionado = select.options[select.selectedIndex].dataset.index;
+  
+  const participantes = document.getElementsByClassName('participeites');
+  for (let j = 0; j < participantes.length; j++) {
+    const status = participantes[j].dataset.status;
+    if (status >= (parseInt(indiceSelecionado) + 1)) {
+      participantes[j].style.display = 'block';
+    } else {
+      participantes[j].style.display = 'none';
+    }
+  }
+}
 
 let lastClickTime = 0;
 
@@ -212,6 +223,34 @@ function tabClick(event) {
   }
   
   lastClickTime = currentTime;
+}
+
+// Evento de clique do botão "Bloquear"
+document.getElementById('bloquear-btn').addEventListener('click', function () {
+  // Obtenha todos os checkboxes marcados
+  const checkboxesMarcados = document.querySelectorAll('.form-check-input:checked');
+
+  // Itere sobre os checkboxes marcados e atualize o status dos participantes
+  checkboxesMarcados.forEach(function (checkbox) {
+    const idParticipante = checkbox.id.split('-')[1];
+    // Execute a função para atualizar o status do participante
+    atualizarStatusParticipante(idParticipante, -1);
+  });
+});
+
+// Função para atualizar o status do participante usando AJAX
+function atualizarStatusParticipante(idParticipante, novoStatus) {
+  $.ajax({
+    url: '/atualizarStatusParticipante',
+    method: 'POST',
+    data: { idParticipante: idParticipante, novoStatus: novoStatus },
+    success: function (response) {
+      console.log('Status do participante atualizado com sucesso!');
+    },
+    error: function (error) {
+      console.error('Erro ao atualizar o status do participante:', error);
+    },
+  });
 }
 
 
