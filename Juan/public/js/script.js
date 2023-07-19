@@ -225,27 +225,28 @@ function tabClick(event) {
   lastClickTime = currentTime;
 }
 
-// Evento de clique do botão "Bloquear"
-document.getElementById('bloquear-btn').addEventListener('click', function () {
+ // Evento de clique do botão "Bloquear"
+ document.getElementById('bloquear-btn').addEventListener('click', function () {
   // Obtenha todos os checkboxes marcados
   const checkboxesMarcados = document.querySelectorAll('.form-check-input:checked');
 
   // Itere sobre os checkboxes marcados e atualize o status dos participantes
   checkboxesMarcados.forEach(function (checkbox) {
-    const idParticipante = checkbox.id.split('-')[1];
+    const idParticipanteProcesso = checkbox.id.split('-')[1];
     // Execute a função para atualizar o status do participante
-    atualizarStatusParticipante(idParticipante, -1);
+    atualizarStatusParticipante(idParticipanteProcesso, -1);
   });
 });
 
 // Função para atualizar o status do participante usando AJAX
-function atualizarStatusParticipante(idParticipante, novoStatus) {
+function atualizarStatusParticipante(idParticipanteProcesso, novoStatus) {
   $.ajax({
     url: '/atualizarStatusParticipante',
     method: 'POST',
-    data: { idParticipante: idParticipante, novoStatus: novoStatus },
+    data: { idParticipante: idParticipanteProcesso, novoStatus: novoStatus },
     success: function (response) {
       console.log('Status do participante atualizado com sucesso!');
+      location.reload();
     },
     error: function (error) {
       console.error('Erro ao atualizar o status do participante:', error);

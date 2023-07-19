@@ -1,4 +1,4 @@
-const { ParticipanteProcesso } = require('../src/model/participanteProcesso');
+const ParticipanteProcesso = require('src/model/participanteProcesso');
 
 // Manipular o clique no botão "Aplicar filtros"
 $("#aplicarFiltro").click(async function() {
