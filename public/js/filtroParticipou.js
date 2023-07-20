@@ -1,7 +1,7 @@
-const { ParticipanteProcesso } = require('../src/model/participanteProcesso');
+const ParticipanteProcesso = require('src/model/participanteProcesso');
 
 // Manipular o clique no botão "Aplicar filtros"
-$("#aplicarFiltro").click(async function() {
+$("#aplicarFiltro").click(async function () {
   // Verificar qual opção de filtro está selecionada
   var radioValue = $("input[name='vbtn-radioParticipou']:checked").attr("id");
 
@@ -17,7 +17,7 @@ $("#aplicarFiltro").click(async function() {
     const participantesIds = participantes.map(participante => participante.IDParticipante);
 
     // Exibir apenas os participantes que estão na lista de IDs filtrados
-    $(".participante-item").each(function() {
+    $(".participante-item").each(function () {
       var idParticipante = $(this).data("idparticipante");
       if (participantesIds.includes(idParticipante)) {
         $(this).show();
@@ -36,7 +36,7 @@ $("#aplicarFiltro").click(async function() {
     const participantesIds = participantes.map(participante => participante.IDParticipante);
 
     // Exibir apenas os participantes que estão na lista de IDs filtrados
-    $(".participante-item").each(function() {
+    $(".participante-item").each(function () {
       var idParticipante = $(this).data("idparticipante");
       if (participantesIds.includes(idParticipante)) {
         $(this).show();

@@ -1,11 +1,11 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // Função para ordenar os itens da lista em ordem alfabética
   function ordenarParticipantes(ordem) {
     // Selecionar os elementos da lista de participantes
     var participantes = $(".participante-item");
 
     // Classificar os participantes com base no nome
-    participantes.sort(function(a, b) {
+    participantes.sort(function (a, b) {
       var nomeA = $(a).data("nome").toUpperCase();
       var nomeB = $(b).data("nome").toUpperCase();
       if (ordem === "asc") {
@@ -20,7 +20,7 @@ $(document).ready(function() {
   }
 
   // Manipular o clique no botão "Aplicar filtros"
-  $("#aplicarFiltro").click(function() {
+  $("#aplicarFiltro").click(function () {
     // Verificar qual opção de filtro está selecionada
     var radioValue = $("input[name='vbtn-radioNome']:checked").attr("id");
 
@@ -32,5 +32,3 @@ $(document).ready(function() {
     }
   });
 });
-
-

@@ -6,9 +6,6 @@ const Participante = require('../model/participante');
 
 const atualizarProcesso = async (req, res) => {
   try {
-    if (!req.session.EDV)
-      return res.redirect('/Login')
-
     const arquivo = req.files.arquivo;
     const workbook = XLSX.read(arquivo.data, { type: 'buffer' });
     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
@@ -23,10 +20,10 @@ const atualizarProcesso = async (req, res) => {
       // Verifique se o nome do participante está definido
       if (Nome) {
         // Encontre o participante pelo nome e IDProcesso
-        const participante = await Participante.findOne({
-          where: {
+        const participante = await Participante.findOne({ 
+          where: { 
             Nome: Nome
-          }
+          } 
         });
 
         // Verifique se o participante foi encontrado
