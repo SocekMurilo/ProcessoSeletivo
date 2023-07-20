@@ -13,6 +13,8 @@ const processo = require('./src/controllers/processo');
 const processos = require('./src/controllers/processos');
 const login = require('./src/controllers/login');
 const cadastrar = require('./src/controllers/cadastrar');
+const atualizarStatus = require('./src/controllers/atualizarStatusParticipante');
+
 
 
 // Iniciando as rotas
@@ -38,6 +40,8 @@ router.post('/ajax', home.indiceIDEtapa);
 router.post('/novoProcesso', novoProcesso);
 router.post('/editarProcesso/:IDProcesso', editarProcesso);
 router.post('/atualizarProcesso/:IDProcesso', atualizarProcesso);
+router.post('/atualizarStatusParticipante', atualizarStatus.atualizarStatusParticipante);
+
 
 router.post('/Cadastrar', cadastrar.pagCadastroPost)
 
