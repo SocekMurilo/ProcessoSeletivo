@@ -39,6 +39,6 @@ module.exports = {
     },
     async pagLogoutGet(req, res) {
         req.session.destroy();
-        res.redirect('/Login');
+        res.render('../views/Login', { erro: false });
     }
 }

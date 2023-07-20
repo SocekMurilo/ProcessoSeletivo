@@ -2,6 +2,7 @@ const Processos = require('../model/processos');
 const Etapas = require('../model/etapas');
 const Participante = require('../model/participante');
 const ParticipanteProcesso = require('../model/participanteProcesso');
+const Notas = require ('../model/notas')
 
 const { Op } = require('sequelize');
 
@@ -70,7 +71,12 @@ module.exports = {
             console.log('Índice da etapa atual:', indiceEtapaAtual);
             console.log('ID da etapa atual:', idEtapaAtual);
 
-            res.render('../views/index', { processo, participantes: participantesDoProcesso, etapas, indiceEtapaAtual, idEtapaAtual });
+            const nota = await Notas.findAll({
+                raw: true,
+                attributes: ['IDNota', 'Nota']
+            });
+
+            res.render('../views/index', { processo, participantes: participantesDoProcesso, etapas, indiceEtapaAtual, idEtapaAtual, nota });
         } catch (error) {
             console.error('Erro ao obter os dados do processo:', error);
             res.render('error', { message: 'Erro ao obter os dados do processo' });

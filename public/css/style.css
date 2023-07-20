@@ -199,3 +199,12 @@ button.accordion-button::after {
     max-height: 643px;
     overflow-y: auto;
 }
+
+.ProcessosBloco{
+        max-height: 697px;
+        overflow-y: auto;
+}
+
+.grupos{
+    
+}
