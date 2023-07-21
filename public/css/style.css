@@ -205,6 +205,12 @@ button.accordion-button::after {
         overflow-y: auto;
 }
 
-.grupos{
-    
+.medias{
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.filtross{
+    max-height: auto;
+    overflow-x: auto;
 }

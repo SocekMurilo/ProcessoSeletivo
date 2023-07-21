@@ -206,7 +206,7 @@ function exibirParticipantes(select) {
   for (let j = 0; j < participantes.length; j++) {
     const status = participantes[j].dataset.status;
     if (status >= (parseInt(indiceSelecionado) + 1)) {
-      participantes[j].style.display = 'block';
+      participantes[j].style.display = 'flex';
     } else {
       participantes[j].style.display = 'none';
     }
