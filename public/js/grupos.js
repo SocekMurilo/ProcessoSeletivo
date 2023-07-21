@@ -20,3 +20,18 @@ grupos.forEach(function (grupo, index) {
 });
 }
 
+function atualizarMediaNotas() {
+    // Primeiro, setamos a média para zero
+    const mediaElement1 = document.getElementById("Media1");
+    const mediaElement2 = document.getElementById("Media2");
+    // ... adicione mais elementos de média conforme necessário
+
+    mediaElement1.textContent = "0.00";
+    mediaElement2.textContent = "0.00";
+    // ... atualize mais elementos de média conforme necessário
+
+    // Em seguida, recalcule as médias chamando a função calcularMediaNotas com os grupos atualizados
+    const grupos = document.querySelectorAll(".nota");
+    calcularMediaNotas(grupos);
+}
+

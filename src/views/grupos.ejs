@@ -62,7 +62,7 @@
                 <% for (let i=processosComEtapas.length - 1; i> -1; i--) { %>
                     <div id="primeiro-select">
                         <input type="hidden" id="indiceEtapaSelecionada<%= i %>" value="0">
-                        <select id="etapa<%= i %>-<%= processosComEtapas[i].IDProcesso %> 
+                        <select id="etapa<%= i %>-<%= processosComEtapas[i].IDProcesso %>"
                             data-idProcesso=" <%=processosComEtapas[i].IDProcesso %>" class="form-select select-etapa"
                             onchange="exibirParticipantes(this)">
                             <% for (let j=0; j < processosComEtapas[i].etapas.length; j++) { %>

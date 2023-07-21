@@ -210,7 +210,7 @@ button.accordion-button::after {
     overflow-y: auto;
 }
 
-.filtross{
-    max-height: auto;
+/* .filtross{
+    max-width: 200px;
     overflow-x: auto;
-}
+} */
